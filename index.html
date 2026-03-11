@@ -54,6 +54,8 @@
             align-items: center; justify-content: center; padding: 15px;
         }
         .modal-active { display: flex !important; }
+
+        .thumb-active { border-color: #ea580c !important; opacity: 1 !important; }
         
         select {
             appearance: none;
@@ -64,7 +66,7 @@
 </head>
 <body class="bg-[#F8FAFC] text-slate-900">
 
-    <!-- Top Bar (Clean Version) -->
+    <!-- Top Bar (Multi-language) -->
     <div class="bg-[#0F172A] text-white py-2 px-4 hidden lg:block border-b border-white/5">
         <div class="max-w-7xl mx-auto flex justify-end items-center text-[11px] font-semibold tracking-wider">
             <div class="flex items-center gap-4">
@@ -111,13 +113,13 @@
         <div class="max-w-4xl mx-auto relative z-10">
             <span data-i18n="hero-tag" class="inline-block border border-orange-500/50 text-orange-400 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Penyuplai Komoditas Terpercaya</span>
             <h1 id="hero-title" class="text-4xl md:text-6xl font-black mb-4 leading-tight uppercase italic tracking-tighter">Connecting Indonesia <br>to the <span class="text-orange-500 not-italic">World</span></h1>
-            <p data-i18n="hero-desc" class="text-sm md:text-base text-slate-400 font-medium max-w-2xl mx-auto opacity-90">Memastikan kualitas produk terbaik dari petani dan produsen lokal untuk memenuhi standar pasar internasional secara berkelanjutan.</p>
+            <p data-i18n="hero-desc" class="text-sm md:text-base text-slate-400 font-medium max-w-2xl mx-auto opacity-90">Kualitas produk terbaik dari petani lokal untuk standar pasar internasional.</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-6 -mt-10 relative z-10">
-        <!-- Professional Filter Bar -->
+        <!-- Filter Bar -->
         <div class="bg-white p-4 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-4 items-center justify-between border border-slate-100 mb-12">
             <div class="flex items-center gap-4 px-2">
                 <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400">
@@ -125,19 +127,17 @@
                 </div>
                 <div>
                     <span data-i18n="filter-label" class="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Cari Komoditas</span>
-                    <span data-i18n="filter-sub" class="text-xs font-bold text-blue-950">Pilih Berdasarkan Kategori</span>
+                    <span data-i18n="filter-sub" class="text-xs font-bold text-blue-950">Filter Kategori</span>
                 </div>
             </div>
-            <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
+            <div class="w-full md:w-auto">
                 <select id="category-filter" onchange="filterProducts(this.value)" class="w-full sm:w-64 bg-slate-50 border border-slate-200 text-slate-700 font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 text-[11px] uppercase cursor-pointer transition-all">
-                    <!-- Options injected by JS -->
                 </select>
             </div>
         </div>
 
         <!-- Product Grid -->
         <div id="product-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-20">
-            <!-- Items injected by JS -->
         </div>
 
         <!-- How to Order Section -->
@@ -148,48 +148,38 @@
                 <div class="text-center mb-16 relative z-10">
                     <h3 data-i18n="proc-title" class="text-2xl md:text-3xl font-black text-blue-950 uppercase italic tracking-tighter">Prosedur Kerja Sama</h3>
                     <div class="w-16 h-1 bg-orange-600 mx-auto mt-4 rounded-full"></div>
-                    <p data-i18n="proc-sub" class="text-[11px] text-slate-400 font-bold uppercase tracking-[0.3em] mt-6">Simple & Transparent Export Process</p>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-12 relative z-10">
                     <div class="text-center group">
                         <div class="relative">
-                            <div class="w-16 h-16 bg-slate-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-600 group-hover:text-white group-hover:-translate-y-2 transition-all duration-500">
+                            <div class="w-16 h-16 bg-slate-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-600 group-hover:text-white transition-all duration-500">
                                 <i class="fas fa-search text-xl"></i>
                             </div>
-                            <span class="absolute top-0 right-1/2 translate-x-10 -mt-2 bg-white border-2 border-slate-100 w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-slate-400">01</span>
                         </div>
                         <h4 data-i18n="step1-t" class="text-sm font-black text-blue-950 uppercase mb-3">Pilih Komoditas</h4>
-                        <p data-i18n="step1-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Tinjau katalog kami atau sampaikan kebutuhan spesifik Anda untuk kami carikan sumbernya.</p>
+                        <p data-i18n="step1-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Tinjau katalog atau sampaikan kebutuhan spesifik Anda.</p>
                     </div>
                     
                     <div class="text-center group">
                         <div class="relative">
-                            <div class="w-16 h-16 bg-slate-50 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 group-hover:text-white group-hover:-translate-y-2 transition-all duration-500">
+                            <div class="w-16 h-16 bg-slate-50 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 group-hover:text-white transition-all duration-500">
                                 <i class="fab fa-whatsapp text-2xl"></i>
                             </div>
-                            <span class="absolute top-0 right-1/2 translate-x-10 -mt-2 bg-white border-2 border-slate-100 w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-slate-400">02</span>
                         </div>
                         <h4 data-i18n="step2-t" class="text-sm font-black text-blue-950 uppercase mb-3">Konsultasi Admin</h4>
-                        <p data-i18n="step2-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Hubungi admin untuk mendapatkan penawaran harga terbaik (FOB/CNF/CIF) sesuai volume.</p>
+                        <p data-i18n="step2-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Dapatkan penawaran harga terbaik (FOB/CNF/CIF).</p>
                     </div>
 
                     <div class="text-center group">
                         <div class="relative">
-                            <div class="w-16 h-16 bg-slate-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 group-hover:text-white group-hover:-translate-y-2 transition-all duration-500">
+                            <div class="w-16 h-16 bg-slate-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
                                 <i class="fas fa-ship text-xl"></i>
                             </div>
-                            <span class="absolute top-0 right-1/2 translate-x-10 -mt-2 bg-white border-2 border-slate-100 w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-slate-400">03</span>
                         </div>
                         <h4 data-i18n="step3-t" class="text-sm font-black text-blue-950 uppercase mb-3">Kontrak & Pengiriman</h4>
-                        <p data-i18n="step3-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Penerbitan kontrak resmi, inspeksi barang, dan pengaturan logistik internasional.</p>
+                        <p data-i18n="step3-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Penerbitan kontrak resmi dan logistik internasional.</p>
                     </div>
-                </div>
-
-                <div class="mt-16 text-center relative z-10">
-                    <a href="https://wa.me/628123456789" class="inline-flex items-center gap-4 bg-[#0F172A] text-white px-10 py-4 rounded-xl font-black text-xs italic uppercase tracking-widest hover:bg-orange-600 shadow-2xl shadow-blue-950/20 transition-all duration-300">
-                        <span data-i18n="btn-contact">HUBUNGI PROFIL ADMIN</span> <i class="fas fa-external-link-alt text-[10px]"></i>
-                    </a>
                 </div>
             </div>
         </section>
@@ -197,8 +187,8 @@
 
     <!-- Modal -->
     <div id="product-modal" onclick="if(event.target==this) closeModal()">
-        <div class="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-[2rem] p-6 md:p-10 relative shadow-2xl border border-white/20">
-            <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-500 rounded-full hover:bg-red-50 hover:text-red-500 transition-all duration-300 z-20">
+        <div class="bg-white max-w-5xl w-full max-h-[95vh] overflow-y-auto rounded-[2rem] p-6 md:p-10 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-500 rounded-full hover:bg-red-50 hover:text-red-500 transition-all z-20">
                 <i class="fas fa-times"></i>
             </button>
             <div id="modal-content"></div>
@@ -206,40 +196,17 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-[#0F172A] text-white pt-20 pb-10 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <div class="text-2xl font-black italic uppercase mb-6 tracking-tighter">INDO<span class="text-orange-600">EXPORT</span> GLOBAL</div>
-                    <p data-i18n="footer-about" class="text-slate-400 text-sm leading-relaxed max-w-sm mb-8">Penyedia solusi perdagangan global terpercaya yang menghubungkan komoditas terbaik Indonesia dengan pembeli internasional berkualitas tinggi.</p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h5 data-i18n="footer-menu-t" class="text-xs font-black uppercase tracking-[0.2em] mb-6 text-orange-500 italic">Menu Cepat</h5>
-                    <ul class="text-slate-400 text-xs font-bold space-y-4 uppercase">
-                        <li><a href="#" data-i18n="nav-home" class="hover:text-white transition">Beranda</a></li>
-                        <li><a href="#how-to-order" data-i18n="footer-proc" class="hover:text-white transition">Prosedur</a></li>
-                        <li><a href="https://wa.me/628123456789" data-i18n="nav-admin" class="hover:text-white transition">Profil Admin</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 data-i18n="footer-office-t" class="text-xs font-black uppercase tracking-[0.2em] mb-6 text-orange-500 italic">Kantor</h5>
-                    <p class="text-slate-400 text-xs font-bold leading-relaxed uppercase">
-                        Sona Topas Tower, Lt. 15<br>
-                        Jl. Jend. Sudirman No. 26<br>
-                        Jakarta Selatan, 12920<br>
-                        Indonesia
-                    </p>
-                </div>
+    <footer class="bg-[#0F172A] text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="text-2xl font-black italic uppercase mb-6 tracking-tighter">INDO<span class="text-orange-600">EXPORT</span> GLOBAL</div>
+            <p data-i18n="footer-about" class="text-slate-400 text-sm max-w-xl mx-auto mb-10">Penyedia solusi perdagangan global terpercaya untuk komoditas terbaik Indonesia.</p>
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="#" class="text-slate-400 hover:text-orange-500 transition"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-orange-500 transition"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-orange-500 transition"><i class="fab fa-whatsapp text-xl"></i></a>
             </div>
-            <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest text-center md:text-left">
-                    &copy; 2025 IndoExport Global Hub. All Rights Reserved.
-                </div>
+            <div class="pt-8 border-t border-white/5 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                &copy; 2025 IndoExport Global Hub.
             </div>
         </div>
     </footer>
@@ -254,23 +221,18 @@
                 "nav-home": "Beranda",
                 "nav-admin": "Profil Admin",
                 "hero-tag": "Penyuplai Komoditas Terpercaya",
-                "hero-desc": "Memastikan kualitas produk terbaik dari petani dan produsen lokal untuk memenuhi standar pasar internasional secara berkelanjutan.",
+                "hero-desc": "Kualitas produk terbaik dari petani lokal untuk standar pasar internasional.",
                 "filter-label": "Cari Komoditas",
-                "filter-sub": "Pilih Berdasarkan Kategori",
+                "filter-sub": "Filter Kategori",
                 "proc-title": "Prosedur Kerja Sama",
-                "proc-sub": "Proses Ekspor yang Simpel & Transparan",
                 "step1-t": "Pilih Komoditas",
-                "step1-d": "Tinjau katalog kami atau sampaikan kebutuhan spesifik Anda untuk kami carikan sumbernya.",
+                "step1-d": "Tinjau katalog atau sampaikan kebutuhan spesifik Anda.",
                 "step2-t": "Konsultasi Admin",
-                "step2-d": "Hubungi admin untuk mendapatkan penawaran harga terbaik (FOB/CNF/CIF) sesuai volume.",
+                "step2-d": "Dapatkan penawaran harga terbaik (FOB/CNF/CIF).",
                 "step3-t": "Kontrak & Pengiriman",
-                "step3-d": "Penerbitan kontrak resmi, inspeksi barang, dan pengaturan logistik internasional.",
-                "btn-contact": "HUBUNGI PROFIL ADMIN",
-                "footer-about": "Penyedia solusi perdagangan global terpercaya yang menghubungkan komoditas terbaik Indonesia dengan pembeli internasional berkualitas tinggi.",
-                "footer-menu-t": "Menu Cepat",
-                "footer-office-t": "Kantor",
-                "footer-proc": "Prosedur",
-                "all-cat": "Semua Kategori Produk",
+                "step3-d": "Penerbitan kontrak resmi dan logistik internasional.",
+                "footer-about": "Penyedia solusi perdagangan global terpercaya untuk komoditas terbaik Indonesia.",
+                "all-cat": "Semua Kategori",
                 "btn-detail": "Lihat Detail",
                 "spec-label": "Spesifikasi",
                 "ship-label": "Logistik",
@@ -282,23 +244,18 @@
                 "nav-home": "Home",
                 "nav-admin": "Admin Profile",
                 "hero-tag": "Trusted Commodity Supplier",
-                "hero-desc": "Ensuring the best quality products from local farmers and producers to meet international market standards sustainably.",
+                "hero-desc": "Top quality products from local farmers for international market standards.",
                 "filter-label": "Search Commodity",
-                "filter-sub": "Select By Category",
+                "filter-sub": "Filter Category",
                 "proc-title": "Partnership Procedure",
-                "proc-sub": "Simple & Transparent Export Process",
                 "step1-t": "Select Commodity",
-                "step1-d": "Review our catalog or state your specific needs for us to source.",
+                "step1-d": "Review our catalog or state your specific needs.",
                 "step2-t": "Admin Consultation",
-                "step2-d": "Contact admin to get the best price quotes (FOB/CNF/CIF) based on volume.",
+                "step2-d": "Get the best price quotes (FOB/CNF/CIF).",
                 "step3-t": "Contract & Shipping",
-                "step3-d": "Official contract issuance, goods inspection, and international logistics arrangement.",
-                "btn-contact": "CONTACT ADMIN PROFILE",
-                "footer-about": "Trusted global trade solution provider connecting Indonesia's finest commodities with high-quality international buyers.",
-                "footer-menu-t": "Quick Menu",
-                "footer-office-t": "Office",
-                "footer-proc": "Procedures",
-                "all-cat": "All Product Categories",
+                "step3-d": "Official contract issuance and international logistics.",
+                "footer-about": "Trusted global trade solution provider for Indonesia's finest commodities.",
+                "all-cat": "All Categories",
                 "btn-detail": "View Details",
                 "spec-label": "Specifications",
                 "ship-label": "Logistics",
@@ -314,25 +271,26 @@
                 name: { id: "Daun Pisang Klutuk", en: "Klutuk Banana Leaves" },
                 category: { id: "Hortikultura", en: "Horticulture" },
                 desc: { id: "Grade A, Segar, & Vacuum Pack.", en: "Grade A, Fresh, & Vacuum Packed." },
-                longDesc: { 
-                    id: "Daun Pisang Klutuk pilihan untuk pasar premium. Tekstur elastis, aromatik, dan tidak mudah robek.", 
-                    en: "Premium Klutuk Banana Leaves for high-end markets. Elastic texture, aromatic, and tear-resistant." 
-                },
-                images: 
-                ["images/daun_pisang/01.png"],
-                ["images/daun_pisang/02.png"],
-                ["images/daun_pisang/03.jpg"],
-                specs: { id: ["Grade: Ekspor", "Pack: Vacuum", "Ketahanan: 14 Hari"], en: ["Grade: Export", "Pack: Vacuum", "Durability: 14 Days"] },
+                longDesc: { id: "Daun Pisang Klutuk pilihan pasar premium. Tekstur elastis, aromatik.", en: "Premium Klutuk Banana Leaves. Elastic and aromatic." },
+                images: [
+                    "https://images.unsplash.com/photo-1596434455581-228723384249?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1543326190-e8869c9725f7?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1582281227099-c3d9d30a442b?auto=format&fit=crop&q=80&w=800"
+                ],
+                specs: { id: ["Grade: Ekspor", "Pack: Vacuum"], en: ["Grade: Export", "Pack: Vacuum"] },
                 shipping: { min: "200 KG", terms: "FOB/CIF" }
             },
             {
                 id: "manggis",
                 name: { id: "Manggis Premium", en: "Premium Mangosteen" },
                 category: { id: "Buah Segar", en: "Fresh Fruits" },
-                desc: { id: "Export Quality, Bebas Getah Kuning.", en: "Export Quality, No Yellow Sap." },
-                longDesc: { id: "Manggis pilihan dengan kulit bersih. Dipanen dengan tingkat kematangan optimal.", en: "Selected mangosteen with clean skin. Harvested at optimal maturity levels." },
-                images: ["https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Brix: 15%+", "Size: 4-6/kg", "Bebas Getah"], en: ["Brix: 15%+", "Size: 4-6/kg", "No Sap"] },
+                desc: { id: "Export Quality, Bersih.", en: "Export Quality, Clean." },
+                longDesc: { id: "Manggis pilihan dengan kulit bersih dan daging buah manis.", en: "Selected mangosteen with clean skin and sweet fruit meat." },
+                images: [
+                    "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1594235836021-0a625a666f7d?auto=format&fit=crop&q=80&w=800"
+                ],
+                specs: { id: ["Size: 4-6/kg", "Bebas Getah"], en: ["Size: 4-6/kg", "No Sap"] },
                 shipping: { min: "1 Ton", terms: "FOB" }
             },
             {
@@ -340,29 +298,39 @@
                 name: { id: "Kopi Arabika Gayo", en: "Gayo Arabica Coffee" },
                 category: { id: "Minuman", en: "Beverages" },
                 desc: { id: "Specialty Grade, Full Washed.", en: "Specialty Grade, Full Washed." },
-                longDesc: { id: "Biji kopi hijau Arabika dari dataran tinggi Gayo. Aroma floral yang intens.", en: "Arabica green coffee beans from Gayo highlands. Intense floral aroma." },
-                images: ["https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Kadar Air: 12%", "Grade: 1", "Ketinggian: 1500m"], en: ["Moisture: 12%", "Grade: 1", "Altitude: 1500m"] },
+                longDesc: { id: "Biji kopi Arabika Gayo dataran tinggi. Aroma floral intens.", en: "Gayo Arabica highland beans. Intense floral aroma." },
+                images: [
+                    "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1524350303359-b14a8527c9e7?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=800"
+                ],
+                specs: { id: ["Grade: 1", "Ketinggian: 1500m"], en: ["Grade: 1", "Altitude: 1500m"] },
                 shipping: { min: "1 Ton", terms: "FOB" }
             },
             {
                 id: "briket",
                 name: { id: "Briket Batok Kelapa", en: "Coconut Shell Briquettes" },
                 category: { id: "Energi", en: "Energy" },
-                desc: { id: "Panas Tinggi, Abu Rendah (Putih).", en: "High Heat, Low Ash (White)." },
-                longDesc: { id: "Briket kelapa 100% alami untuk Shisha. Menghasilkan abu putih minimal.", en: "100% natural coconut briquettes for Shisha. Minimal white ash production." },
-                images: ["https://images.unsplash.com/photo-1600100397608-f09068da4017?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Kadar Abu: <2.5%", "Durasi: 2.5jam", "Tanpa Bau"], en: ["Ash Content: <2.5%", "Burning: 2.5h", "No Odor"] },
+                desc: { id: "Panas Tinggi, Abu Putih.", en: "High Heat, White Ash." },
+                longDesc: { id: "Briket 100% kelapa alami untuk Shisha. Tahan lama.", en: "100% natural coconut briquettes for Shisha. Long lasting." },
+                images: [
+                    "https://images.unsplash.com/photo-1600100397608-f09068da4017?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&q=80&w=800"
+                ],
+                specs: { id: ["Abu: <2.5%", "Tanpa Bau"], en: ["Ash: <2.5%", "Odorless"] },
                 shipping: { min: "18 Tons", terms: "FOB" }
             },
             {
                 id: "sapu-lidi",
                 name: { id: "Sapu Lidi Nipah", en: "Nipah Broom Sticks" },
                 category: { id: "Kerajinan", en: "Crafts" },
-                desc: { id: "Serut Ganda, Kering & Bersih.", en: "Double Polished, Dry & Clean." },
-                longDesc: { id: "Lidi nipah berkualitas tinggi. Kering dan sangat kokoh untuk kebutuhan massal.", en: "High-quality nipah sticks. Dry and very sturdy for mass export needs." },
-                images: ["https://images.unsplash.com/photo-1620324835154-8e68e426e273?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Panjang: 90cm+", "Kadar Air: <15%", "Bersih"], en: ["Length: 90cm+", "Moisture: <15%", "Clean"] },
+                desc: { id: "Serut Ganda, Bersih.", en: "Double Polished, Clean." },
+                longDesc: { id: "Lidi nipah berkualitas tinggi untuk ekspor massal.", en: "High quality nipah sticks for mass export." },
+                images: [
+                    "https://images.unsplash.com/photo-1620324835154-8e68e426e273?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1590424744295-9da3b30746b1?auto=format&fit=crop&q=80&w=800"
+                ],
+                specs: { id: ["Pjg: 90cm+", "Kering"], en: ["Len: 90cm+", "Dry"] },
                 shipping: { min: "25 Tons", terms: "FOB" }
             },
             {
@@ -370,29 +338,38 @@
                 name: { id: "Kayu Manis Kerinci", en: "Kerinci Cinnamon" },
                 category: { id: "Rempah", en: "Spices" },
                 desc: { id: "Stick Grade A, Minyak Tinggi.", en: "Stick Grade A, High Oil." },
-                longDesc: { id: "Kayu manis premium dari Jambi. Memiliki aroma yang sangat kuat.", en: "Premium cinnamon from Jambi. Has a very strong aroma." },
-                images: ["https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Ukuran: 8-10cm", "Warna: Merah Cokelat", "Kering Alami"], en: ["Size: 8-10cm", "Color: Red-Brown", "Natural Dried"] },
+                longDesc: { id: "Kayu manis premium Jambi dengan aroma kuat.", en: "Premium Jambi cinnamon with strong aroma." },
+                images: [
+                    "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1596463059283-da257325bee8?auto=format&fit=crop&q=80&w=800"
+                ],
+                specs: { id: ["Size: 8-10cm", "Warna: Merah"], en: ["Size: 8-10cm", "Color: Red"] },
                 shipping: { min: "500 KG", terms: "FOB" }
             },
             {
                 id: "vanili",
                 name: { id: "Vanili Planifolia", en: "Planifolia Vanilla" },
                 category: { id: "Rempah", en: "Spices" },
-                desc: { id: "Gourmet Grade, Berminyak.", en: "Gourmet Grade, Oily." },
-                longDesc: { id: "Polong vanili utuh dengan aroma manis yang kaya dan tekstur lentur.", en: "Whole vanilla beans with rich sweet aroma and supple texture." },
-                images: ["https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Vanillin: 1.8%+", "Panjang: 16cm+", "Lentur"], en: ["Vanillin: 1.8%+", "Length: 16cm+", "Supple"] },
-                shipping: { min: "10 KG", terms: "FOB/CNF" }
+                desc: { id: "Gourmet Grade, Lentur.", en: "Gourmet Grade, Supple." },
+                longDesc: { id: "Polong vanili utuh kaya aroma manis.", en: "Whole vanilla beans rich in sweet aroma." },
+                images: [
+                    "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1542310191-2292d3080c10?auto=format&fit=crop&q=80&w=800"
+                ],
+                specs: { id: ["Vanillin: 1.8%+", "Pjg: 16cm+"], en: ["Vanillin: 1.8%+", "Len: 16cm+"] },
+                shipping: { min: "10 KG", terms: "FOB" }
             },
             {
                 id: "jahe",
                 name: { id: "Jahe Gajah", en: "Elephant Ginger" },
                 category: { id: "Rempah", en: "Spices" },
                 desc: { id: "Besar, Segar, & Bersih.", en: "Large, Fresh, & Clean." },
-                longDesc: { id: "Jahe rimpang besar (Gajah) berkualitas ekspor. Sudah dibersihkan dari tanah.", en: "Export quality large rhizome ginger (Elephant). Cleaned from soil." },
-                images: ["https://images.unsplash.com/photo-1599249300675-c39f1dd2d6be?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Size: 150g+", "Kadar Air: <12%", "Bebas Jamur"], en: ["Size: 150g+", "Moisture: <12%", "Mold Free"] },
+                longDesc: { id: "Jahe rimpang besar kualitas ekspor.", en: "Large rhizome ginger export quality." },
+                images: [
+                    "https://images.unsplash.com/photo-1599249300675-c39f1dd2d6be?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&q=80&w=800"
+                ],
+                specs: { id: ["Size: 150g+", "Bersih"], en: ["Size: 150g+", "Clean"] },
                 shipping: { min: "5 Tons", terms: "FOB" }
             }
         ];
@@ -404,12 +381,6 @@
                 el.textContent = i18n[lang][key];
             });
             
-            // Special cases
-            document.getElementById('hero-title').innerHTML = lang === 'id' 
-                ? `Connecting Indonesia <br>to the <span class="text-orange-500 not-italic">World</span>`
-                : `Connecting Indonesia <br>to the <span class="text-orange-500 not-italic">World</span>`;
-            
-            // Update Active Buttons
             document.getElementById('btn-id').className = lang === 'id' ? 'text-orange-500 cursor-pointer' : 'text-slate-500 cursor-pointer hover:text-white';
             document.getElementById('btn-en').className = lang === 'en' ? 'text-orange-500 cursor-pointer' : 'text-slate-500 cursor-pointer hover:text-white';
 
@@ -431,18 +402,15 @@
         function renderProducts(data = PRODUCT_DATA) {
             const container = document.getElementById('product-container');
             container.innerHTML = data.map(p => `
-                <div onclick="openModal('${p.id}')" class="product-card cursor-pointer bg-white rounded-2xl overflow-hidden custom-shadow border border-slate-100 transition-all duration-500 group">
+                <div onclick="openModal('${p.id}')" class="product-card cursor-pointer bg-white rounded-2xl overflow-hidden custom-shadow border border-slate-100 transition-all group">
                     <div class="h-40 md:h-52 overflow-hidden relative">
                         <img src="${p.images[0]}" onerror="this.src='${FALLBACK_IMG}'" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-3 left-3 bg-white/95 backdrop-blur px-2.5 py-1 rounded-lg text-[9px] text-blue-900 font-black uppercase shadow-sm tracking-widest border border-slate-100">
-                            ${p.category[currentLang]}
-                        </div>
                     </div>
                     <div class="p-4">
-                        <h4 class="text-xs font-black text-blue-950 mb-1.5 truncate uppercase tracking-tighter italic">${p.name[currentLang]}</h4>
-                        <p class="text-slate-400 text-[10px] line-clamp-2 mb-3 leading-relaxed">${p.desc[currentLang]}</p>
-                        <div class="text-orange-600 text-[10px] font-black flex items-center justify-between mt-3 pt-3 border-t border-slate-50 uppercase tracking-widest italic group-hover:text-blue-950 transition-colors">
-                            ${i18n[currentLang]['btn-detail']} <i class="fas fa-chevron-right text-[8px] group-hover:translate-x-1 transition-transform"></i>
+                        <h4 class="text-[10px] font-black text-blue-950 mb-1 truncate uppercase italic">${p.name[currentLang]}</h4>
+                        <p class="text-slate-400 text-[9px] line-clamp-1 mb-2 italic">${p.desc[currentLang]}</p>
+                        <div class="text-orange-600 text-[9px] font-black flex items-center justify-between pt-2 border-t border-slate-50 uppercase italic group-hover:text-blue-950">
+                            ${i18n[currentLang]['btn-detail']} <i class="fas fa-chevron-right text-[7px]"></i>
                         </div>
                     </div>
                 </div>
@@ -459,41 +427,68 @@
             const content = document.getElementById('modal-content');
             
             content.innerHTML = `
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="w-full md:w-1/2">
-                        <div class="aspect-[4/3] rounded-[1.5rem] overflow-hidden shadow-2xl bg-slate-100">
-                            <img src="${p.images[0]}" onerror="this.src='${FALLBACK_IMG}'" class="w-full h-full object-cover">
+                <div class="flex flex-col lg:flex-row gap-10">
+                    <!-- Gallery Section -->
+                    <div class="w-full lg:w-3/5">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-100 mb-4 aspect-video lg:aspect-square">
+                            <img id="main-modal-img" src="${p.images[0]}" class="w-full h-full object-cover transition-opacity duration-300">
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                            ${p.images.map((img, idx) => `
+                                <img src="${img}" 
+                                     onclick="changeModalImage('${img}', this)"
+                                     class="w-20 h-20 rounded-xl object-cover cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-all ${idx === 0 ? 'thumb-active' : ''}">
+                            `).join('')}
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 flex flex-col">
-                        <div class="mb-6">
+
+                    <!-- Info Section -->
+                    <div class="w-full lg:w-2/5 flex flex-col">
+                        <div class="mb-8">
                             <span class="text-orange-600 font-black uppercase text-[10px] tracking-[0.4em] mb-2 block italic">${p.category[currentLang]}</span>
-                            <h2 class="text-3xl font-black text-blue-950 italic uppercase leading-tight tracking-tighter">${p.name[currentLang]}</h2>
+                            <h2 class="text-4xl font-black text-blue-950 italic uppercase leading-none tracking-tighter">${p.name[currentLang]}</h2>
                         </div>
-                        <p class="text-slate-500 text-[12px] leading-relaxed mb-8 border-l-4 border-slate-100 pl-4 italic">${p.longDesc[currentLang]}</p>
                         
-                        <div class="grid grid-cols-2 gap-4 mb-8">
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                                <span class="text-[9px] text-slate-400 font-black uppercase block mb-2 tracking-widest">${i18n[currentLang]['spec-label']}</span>
-                                <ul class="text-[10px] font-bold text-slate-700 space-y-1.5">
-                                    ${p.specs[currentLang].map(s => `<li class="flex items-center gap-2"><div class="w-1 h-1 bg-orange-500 rounded-full"></div> ${s}</li>`).join('')}
+                        <p class="text-slate-500 text-[13px] leading-relaxed mb-8 border-l-4 border-slate-100 pl-4 italic">${p.longDesc[currentLang]}</p>
+                        
+                        <div class="space-y-4 mb-10">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                                <span class="text-[9px] text-slate-400 font-black uppercase block mb-3 tracking-widest">${i18n[currentLang]['spec-label']}</span>
+                                <ul class="text-[11px] font-bold text-slate-700 space-y-2">
+                                    ${p.specs[currentLang].map(s => `<li class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> ${s}</li>`).join('')}
                                 </ul>
                             </div>
-                            <div class="bg-blue-50/20 p-4 rounded-2xl border border-blue-50">
-                                <span class="text-[9px] text-blue-400 font-black uppercase block mb-2 tracking-widest">${i18n[currentLang]['ship-label']}</span>
-                                <p class="text-[10px] font-black text-blue-900 mb-1">${i18n[currentLang]['moq']}: ${p.shipping.min}</p>
-                                <p class="text-[10px] font-black text-blue-900">${i18n[currentLang]['terms']}: ${p.shipping.terms}</p>
+                            <div class="bg-blue-50/20 p-5 rounded-2xl border border-blue-100">
+                                <span class="text-[9px] text-blue-400 font-black uppercase block mb-3 tracking-widest">${i18n[currentLang]['ship-label']}</span>
+                                <div class="flex justify-between">
+                                    <p class="text-[11px] font-black text-blue-900">${i18n[currentLang]['moq']}: ${p.shipping.min}</p>
+                                    <p class="text-[11px] font-black text-blue-900">${i18n[currentLang]['terms']}: ${p.shipping.terms}</p>
+                                </div>
                             </div>
                         </div>
 
-                        <button onclick="orderViaWA('${p.name[currentLang]}')" class="mt-auto w-full bg-green-600 text-white font-black py-4 rounded-xl hover:bg-green-700 shadow-xl shadow-green-600/20 text-xs italic transition-all uppercase flex items-center justify-center gap-3 tracking-[0.2em]">
-                            <i class="fab fa-whatsapp text-lg"></i> ${i18n[currentLang]['chat-label']}
+                        <button onclick="orderViaWA('${p.name[currentLang]}')" class="mt-auto w-full bg-green-600 text-white font-black py-5 rounded-2xl hover:bg-green-700 shadow-xl shadow-green-600/20 text-[11px] italic transition-all uppercase flex items-center justify-center gap-3 tracking-[0.2em]">
+                            <i class="fab fa-whatsapp text-xl"></i> ${i18n[currentLang]['chat-label']}
                         </button>
                     </div>
                 </div>
             `;
             document.getElementById('product-modal').classList.add('modal-active');
             document.body.style.overflow = 'hidden';
+        }
+
+        function changeModalImage(src, thumbEl) {
+            const mainImg = document.getElementById('main-modal-img');
+            mainImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+                
+                // Update active thumb
+                document.querySelectorAll('#modal-content img').forEach(el => el.classList.remove('thumb-active'));
+                thumbEl.classList.add('thumb-active');
+            }, 150);
         }
 
         function closeModal() {
@@ -503,8 +498,8 @@
 
         function orderViaWA(productName) {
             const message = currentLang === 'id' 
-                ? `Halo Admin IndoExport Global,\n\nKami tertarik untuk mengajukan penawaran harga untuk produk:\n*${productName}*\n\nMohon informasi ketersediaan stok dan prosedur pengiriman.`
-                : `Hello Admin IndoExport Global,\n\nWe are interested in requesting a price quote for:\n*${productName}*\n\nPlease provide information regarding stock availability and shipping procedures.`;
+                ? `Halo Admin IndoExport Global,\n\nKami tertarik untuk produk: *${productName}*.\nMohon informasi stok & pengiriman.`
+                : `Hello Admin IndoExport Global,\n\nWe are interested in: *${productName}*.\nPlease provide stock & shipping details.`;
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
@@ -512,4 +507,3 @@
     </script>
 </body>
 </html>
-
