@@ -45,6 +45,9 @@
 
         .page-content { display: none; }
         .page-active { display: block; }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-slate-900">
@@ -186,45 +189,107 @@
 
     <!-- Page: COMPANY PROFILE -->
     <div id="page-company" class="page-content">
-        <section class="py-20 px-6 bg-white">
-            <div class="max-w-5xl mx-auto">
-                <div class="flex flex-col md:flex-row gap-16 items-center mb-24">
+        <section class="py-20 px-6 bg-white overflow-hidden">
+            <div class="max-w-6xl mx-auto">
+                <!-- Header & Intro -->
+                <div class="flex flex-col md:flex-row gap-16 items-center mb-32">
                     <div class="w-full md:w-1/2">
-                        <span data-i18n="cp-tag" class="text-orange-600 font-black uppercase text-[10px] tracking-[0.4em] mb-4 block">Tentang Kami</span>
-                        <h2 data-i18n="cp-title" class="text-4xl md:text-5xl font-black text-blue-950 uppercase italic tracking-tighter leading-none mb-6">Building Bridges <br>of Trust Globally.</h2>
-                        <p data-i18n="cp-desc" class="text-slate-500 text-sm leading-relaxed mb-6">IndoExport Global adalah mitra strategis Anda dalam menghubungkan potensi sumber daya alam Indonesia yang melimpah dengan kebutuhan pasar dunia. Kami berdedikasi untuk memberikan standar kualitas tertinggi melalui kontrol kualitas yang ketat di setiap rantai pasokan.</p>
-                        <div class="flex gap-10">
-                            <div>
-                                <span class="block text-3xl font-black text-blue-950">15+</span>
-                                <span data-i18n="cp-stat1" class="text-[10px] text-slate-400 font-bold uppercase">Negara Tujuan</span>
+                        <span data-i18n="cp-tag" class="text-orange-600 font-black uppercase text-[10px] tracking-[0.4em] mb-4 block">Tentang Perusahaan</span>
+                        <h2 data-i18n="cp-title" class="text-4xl md:text-5xl font-black text-blue-950 uppercase italic tracking-tighter leading-none mb-6">Empowering Indonesia's <br>Potential for Global <span class="text-orange-600">Success.</span></h2>
+                        <p data-i18n="cp-desc" class="text-slate-500 text-sm leading-relaxed mb-8">IndoExport Global adalah entitas perdagangan internasional terkemuka yang berpusat di Indonesia, berdedikasi untuk menjembatani sumber daya alam berkualitas tinggi milik Nusantara ke pasar global. Kami mengintegrasikan teknologi logistik modern dengan kearifan lokal untuk memastikan setiap pengiriman memenuhi standar mutu internasional.</p>
+                        
+                        <div class="grid grid-cols-2 gap-8 border-t border-slate-100 pt-10">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg">
+                                    <i class="fas fa-globe-asia"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-2xl font-black text-blue-950">20+</span>
+                                    <span data-i18n="cp-stat1" class="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Global Destinations</span>
+                                </div>
                             </div>
-                            <div>
-                                <span class="block text-3xl font-black text-blue-950">500+</span>
-                                <span data-i18n="cp-stat2" class="text-[10px] text-slate-400 font-bold uppercase">Ton / Bulan</span>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center text-lg">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-2xl font-black text-blue-950">100%</span>
+                                    <span data-i18n="cp-stat2" class="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Quality Guaranteed</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2">
-                        <div class="rounded-3xl overflow-hidden shadow-2xl rotate-2">
-                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-orange-600 opacity-10 rounded-full blur-3xl"></div>
+                        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 border-[12px] border-slate-50">
+                            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200" alt="Logistik Ekspor Profesional" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-[#0F172A] p-6 rounded-2xl shadow-xl z-20">
+                            <i class="fas fa-award text-orange-500 text-3xl mb-2"></i>
+                            <div class="text-white text-[10px] font-black uppercase tracking-widest">Certified Export Partner</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 mb-24">
-                    <div class="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100">
-                        <i class="fas fa-eye text-orange-600 text-2xl mb-6"></i>
-                        <h3 data-i18n="cp-visi-t" class="text-xl font-black text-blue-950 uppercase italic mb-4">Visi Kami</h3>
-                        <p data-i18n="cp-visi-d" class="text-slate-500 text-xs leading-relaxed">Menjadi penyuplai komoditas utama Indonesia yang paling terpercaya di pasar internasional dengan mengedepankan inovasi, keberlanjutan, dan kesejahteraan petani lokal.</p>
+                <!-- Core Values & Services -->
+                <div class="grid md:grid-cols-3 gap-6 mb-32">
+                    <div class="bg-[#F8FAFC] p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                        <div class="w-12 h-12 bg-white text-blue-950 rounded-xl flex items-center justify-center shadow-sm mb-6 group-hover:bg-blue-950 group-hover:text-white transition-all">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 data-i18n="val1-t" class="text-lg font-black text-blue-950 uppercase italic mb-3">Integrity First</h3>
+                        <p data-i18n="val1-d" class="text-slate-500 text-[11px] leading-relaxed">Kami menjunjung tinggi transparansi dalam setiap negosiasi dan transaksi untuk membangun kepercayaan jangka panjang.</p>
                     </div>
-                    <div class="bg-[#0F172A] p-10 rounded-[2.5rem] text-white">
-                        <i class="fas fa-bullseye text-orange-500 text-2xl mb-6"></i>
-                        <h3 data-i18n="cp-misi-t" class="text-xl font-black uppercase italic mb-4">Misi Kami</h3>
-                        <ul class="text-slate-400 text-xs leading-relaxed space-y-3">
-                            <li class="flex gap-3"><span class="text-orange-500">01.</span> <span data-i18n="cp-misi-1">Menjamin kualitas produk sesuai standar global.</span></li>
-                            <li class="flex gap-3"><span class="text-orange-500">02.</span> <span data-i18n="cp-misi-2">Membangun hubungan jangka panjang dengan pembeli.</span></li>
-                            <li class="flex gap-3"><span class="text-orange-500">03.</span> <span data-i18n="cp-misi-3">Optimalisasi logistik yang efisien dan aman.</span></li>
-                        </ul>
+                    <div class="bg-[#F8FAFC] p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                        <div class="w-12 h-12 bg-white text-orange-600 rounded-xl flex items-center justify-center shadow-sm mb-6 group-hover:bg-orange-600 group-hover:text-white transition-all">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 data-i18n="val2-t" class="text-lg font-black text-blue-950 uppercase italic mb-3">Superior Quality</h3>
+                        <p data-i18n="val2-d" class="text-slate-500 text-[11px] leading-relaxed">Proses kontrol kualitas (QC) kami yang ketat memastikan produk tiba di tangan Anda dalam kondisi sempurna.</p>
+                    </div>
+                    <div class="bg-[#F8FAFC] p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                        <div class="w-12 h-12 bg-white text-green-600 rounded-xl flex items-center justify-center shadow-sm mb-6 group-hover:bg-green-600 group-hover:text-white transition-all">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 data-i18n="val3-t" class="text-lg font-black text-blue-950 uppercase italic mb-3">Sustainability</h3>
+                        <p data-i18n="val3-d" class="text-slate-500 text-[11px] leading-relaxed">Berkomitmen pada praktik perdagangan yang adil bagi petani lokal dan ramah bagi ekosistem lingkungan.</p>
+                    </div>
+                </div>
+
+                <!-- Mission & Vision Deep Dive -->
+                <div class="bg-[#0F172A] rounded-[3rem] p-10 md:p-20 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
+                        <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-20 relative z-10">
+                        <div>
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-10 h-1 bg-orange-500"></div>
+                                <h3 data-i18n="cp-visi-t" class="text-2xl font-black text-white uppercase italic tracking-tighter">Visi Strategis</h3>
+                            </div>
+                            <p data-i18n="cp-visi-d" class="text-slate-400 text-sm leading-relaxed">Menjadi pemimpin pasar global dalam distribusi komoditas unggulan Indonesia yang diakui atas inovasi rantai pasokan, keunggulan operasional, dan kontribusi sosial yang positif terhadap komunitas produsen lokal.</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-10 h-1 bg-blue-500"></div>
+                                <h3 data-i18n="cp-misi-t" class="text-2xl font-black text-white uppercase italic tracking-tighter">Misi Operasional</h3>
+                            </div>
+                            <ul class="space-y-6">
+                                <li class="flex gap-4">
+                                    <div class="w-6 h-6 rounded-full bg-blue-900/50 flex items-center justify-center text-[10px] text-orange-500 font-bold shrink-0">01</div>
+                                    <span data-i18n="cp-misi-1" class="text-slate-400 text-xs">Menyediakan produk agrikultur dan komoditas pilihan yang bersertifikasi standar mutu global.</span>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="w-6 h-6 rounded-full bg-blue-900/50 flex items-center justify-center text-[10px] text-orange-500 font-bold shrink-0">02</div>
+                                    <span data-i18n="cp-misi-2" class="text-slate-400 text-xs">Membangun ekosistem logistik yang aman, efisien, dan tepat waktu untuk kepuasan mitra internasional.</span>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="w-6 h-6 rounded-full bg-blue-900/50 flex items-center justify-center text-[10px] text-orange-500 font-bold shrink-0">03</div>
+                                    <span data-i18n="cp-misi-3" class="text-slate-400 text-xs">Menerapkan prinsip 'Fair Trade' untuk meningkatkan taraf hidup petani dan produsen skala kecil di Indonesia.</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -236,12 +301,10 @@
         <section class="py-20 px-6 bg-white min-h-[70vh] flex items-center">
             <div class="max-w-5xl mx-auto w-full">
                 <div class="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-slate-100 shadow-sm relative overflow-hidden">
-                    <!-- Background Decoration -->
                     <div class="absolute top-0 left-0 w-32 h-32 bg-orange-500/5 rounded-br-[5rem]"></div>
                     <div class="absolute bottom-0 right-0 w-48 h-48 bg-blue-950/5 rounded-tl-[10rem]"></div>
 
                     <div class="flex flex-col md:flex-row gap-12 items-center relative z-10">
-                        <!-- Owner Photo Container -->
                         <div class="w-full md:w-1/3">
                             <div class="relative group">
                                 <div class="absolute inset-0 bg-orange-600 rounded-[2.5rem] rotate-6 group-hover:rotate-0 transition-transform duration-500"></div>
@@ -251,7 +314,6 @@
                             </div>
                         </div>
 
-                        <!-- Owner Details -->
                         <div class="w-full md:w-2/3">
                             <div class="mb-6">
                                 <span data-i18n="owner-title" class="text-orange-600 font-black uppercase text-[10px] tracking-[0.4em] mb-3 block">Founder & CEO</span>
@@ -292,8 +354,8 @@
 
     <!-- Modal -->
     <div id="product-modal" onclick="if(event.target==this) closeModal()">
-        <div class="bg-white max-w-5xl w-full max-h-[95vh] overflow-y-auto rounded-[2rem] p-6 md:p-10 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-500 rounded-full hover:bg-red-50 hover:text-red-500 transition-all z-20">
+        <div class="bg-white max-w-5xl w-full max-h-[95vh] overflow-y-auto rounded-[2rem] p-6 md:p-10 relative shadow-2xl custom-scrollbar">
+            <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-500 rounded-full hover:bg-red-500 hover:text-white transition-all z-20">
                 <i class="fas fa-times"></i>
             </button>
             <div id="modal-content"></div>
@@ -319,87 +381,56 @@
     <script>
         const WHATSAPP_NUMBER = "628123456789"; 
         const FALLBACK_IMG = "https://images.unsplash.com/photo-1534938665420-4193effeabd4?auto=format&fit=crop&q=80&w=800";
-        // GANTI LINK GAMBAR OWNER DI BAWAH INI
         const OWNER_IMG = "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800";
         
         let currentLang = 'id';
 
         const i18n = {
             id: {
-                "nav-home": "BERANDA",
-                "nav-company": "COMPANY",
-                "nav-owner": "OWNER",
+                "nav-home": "BERANDA", "nav-company": "COMPANY", "nav-owner": "OWNER",
                 "hero-tag": "Penyuplai Komoditas Terpercaya",
                 "hero-desc": "Kualitas produk terbaik dari petani lokal untuk standar pasar internasional.",
-                "filter-label": "Cari Komoditas",
-                "filter-sub": "Filter Kategori",
+                "filter-label": "Cari Komoditas", "filter-sub": "Filter Kategori",
                 "proc-title": "Prosedur Kerja Sama",
-                "step1-t": "Pilih Komoditas",
-                "step1-d": "Tinjau katalog atau sampaikan kebutuhan spesifik Anda.",
-                "step2-t": "Konsultasi Admin",
-                "step2-d": "Dapatkan penawaran harga terbaik (FOB/CNF/CIF).",
-                "step3-t": "Kontrak & Pengiriman",
-                "step3-d": "Penerbitan kontrak resmi dan logistik internasional.",
+                "step1-t": "Pilih Komoditas", "step1-d": "Tinjau katalog atau sampaikan kebutuhan spesifik Anda.",
+                "step2-t": "Konsultasi Admin", "step2-d": "Dapatkan penawaran harga terbaik (FOB/CNF/CIF).",
+                "step3-t": "Kontrak & Pengiriman", "step3-d": "Penerbitan kontrak resmi dan logistik internasional.",
                 "footer-about": "Penyedia solusi perdagangan global terpercaya untuk komoditas terbaik Indonesia.",
-                "all-cat": "Semua Kategori",
-                "btn-detail": "Lihat Detail",
-                "spec-label": "Spesifikasi",
-                "ship-label": "Logistik",
-                "chat-label": "Hubungi Kami",
-                "moq": "MOQ",
-                "terms": "SYARAT",
-                "cp-tag": "Tentang Kami",
-                "cp-title": "Membangun Jembatan Kepercayaan Global.",
-                "cp-desc": "IndoExport Global adalah mitra strategis Anda dalam menghubungkan potensi sumber daya alam Indonesia yang melimpah dengan kebutuhan pasar dunia.",
-                "cp-stat1": "Negara Tujuan",
-                "cp-stat2": "Ton / Bulan",
-                "cp-visi-t": "Visi Kami",
-                "cp-visi-d": "Menjadi penyuplai komoditas utama Indonesia yang paling terpercaya di pasar internasional.",
-                "cp-misi-t": "Misi Kami",
-                "cp-misi-1": "Menjamin kualitas produk sesuai standar global.",
-                "cp-misi-2": "Membangun hubungan jangka panjang dengan pembeli.",
-                "cp-misi-3": "Optimalisasi logistik yang efisien dan aman.",
-                // Owner Profile
+                "all-cat": "Semua Kategori", "btn-detail": "Lihat Detail",
+                "spec-label": "Spesifikasi", "chat-label": "Hubungi Kami",
                 "owner-title": "Pendiri & CEO",
-                "owner-bio": "\"Kami percaya bahwa kejujuran dan kualitas adalah mata uang utama dalam perdagangan internasional. Fokus saya adalah memastikan setiap mitra kami mendapatkan nilai terbaik dari kekayaan alam Indonesia.\""
+                "owner-bio": "\"Kami percaya bahwa kejujuran dan kualitas adalah mata uang utama dalam perdagangan internasional. Fokus saya adalah memastikan setiap mitra kami mendapatkan nilai terbaik dari kekayaan alam Indonesia.\"",
+                "cp-tag": "Tentang Perusahaan", "cp-title": "Empowering Indonesia's Potential for Global Success.",
+                "cp-desc": "IndoExport Global adalah entitas perdagangan internasional terkemuka yang berpusat di Indonesia, berdedikasi untuk menjembatani sumber daya alam berkualitas tinggi milik Nusantara ke pasar global.",
+                "cp-stat1": "Destinasi Global", "cp-stat2": "Jaminan Kualitas",
+                "val1-t": "Integritas Utama", "val1-d": "Transparansi dalam setiap negosiasi dan transaksi untuk membangun kepercayaan jangka panjang.",
+                "val2-t": "Kualitas Unggul", "val2-d": "QC ketat memastikan produk tiba di tangan Anda dalam kondisi sempurna.",
+                "val3-t": "Keberlanjutan", "val3-d": "Komitmen pada Fair Trade dan praktik ramah lingkungan.",
+                "cp-visi-t": "Visi Strategis", "cp-visi-d": "Menjadi pemimpin pasar global dalam distribusi komoditas unggulan Indonesia yang diakui atas inovasi rantai pasokan dan kontribusi sosial.",
+                "cp-misi-t": "Misi Operasional", "cp-misi-1": "Produk agrikultur bersertifikasi mutu global.", "cp-misi-2": "Ekosistem logistik aman, efisien, dan tepat waktu.", "cp-misi-3": "Prinsip Fair Trade untuk kesejahteraan petani."
             },
             en: {
-                "nav-home": "HOME",
-                "nav-company": "COMPANY",
-                "nav-owner": "OWNER",
+                "nav-home": "HOME", "nav-company": "COMPANY", "nav-owner": "OWNER",
                 "hero-tag": "Trusted Commodity Supplier",
                 "hero-desc": "Top quality products from local farmers for international market standards.",
-                "filter-label": "Search Commodity",
-                "filter-sub": "Filter Category",
+                "filter-label": "Search Commodity", "filter-sub": "Filter Category",
                 "proc-title": "Partnership Procedure",
-                "step1-t": "Select Commodity",
-                "step1-d": "Review our catalog or state your specific needs.",
-                "step2-t": "Admin Consultation",
-                "step2-d": "Get the best price quotes (FOB/CNF/CIF).",
-                "step3-t": "Contract & Shipping",
-                "step3-d": "Official contract issuance and international logistics.",
+                "step1-t": "Select Commodity", "step1-d": "Review our catalog or state your specific needs.",
+                "step2-t": "Admin Consultation", "step2-d": "Get the best price quotes (FOB/CNF/CIF).",
+                "step3-t": "Contract & Shipping", "step3-d": "Official contract issuance and international logistics.",
                 "footer-about": "Trusted global trade solution provider for Indonesia's finest commodities.",
-                "all-cat": "All Categories",
-                "btn-detail": "View Details",
-                "spec-label": "Specifications",
-                "ship-label": "Logistics",
-                "chat-label": "Contact Us",
-                "moq": "MOQ",
-                "terms": "TERMS",
-                "cp-tag": "About Us",
-                "cp-title": "Building Bridges of Global Trust.",
-                "cp-desc": "IndoExport Global is your strategic partner in connecting Indonesia's abundant natural resource potential with global market needs.",
-                "cp-stat1": "Destination Countries",
-                "cp-stat2": "Tons / Month",
-                "cp-visi-t": "Our Vision",
-                "cp-visi-d": "To become Indonesia's most trusted primary commodity supplier in the international market.",
-                "cp-misi-t": "Our Mission",
-                "cp-misi-1": "Guarantee product quality according to global standards.",
-                "cp-misi-2": "Build long-term relationships with buyers.",
-                "cp-misi-3": "Optimize efficient and safe logistics.",
-                // Owner Profile
+                "all-cat": "All Categories", "btn-detail": "View Details",
+                "spec-label": "Specifications", "chat-label": "Contact Us",
                 "owner-title": "Founder & CEO",
-                "owner-bio": "\"We believe that integrity and quality are the ultimate currencies in international trade. My focus is to ensure every partner receives the best value from Indonesia's natural resources.\""
+                "owner-bio": "\"We believe that integrity and quality are the ultimate currencies in international trade. My focus is to ensure every partner receives the best value from Indonesia's natural resources.\"",
+                "cp-tag": "Corporate Profile", "cp-title": "Empowering Indonesia's Potential for Global Success.",
+                "cp-desc": "IndoExport Global is a premier international trade entity based in Indonesia, dedicated to bridging Nusantara's high-quality natural resources to the global market.",
+                "cp-stat1": "Global Destinations", "cp-stat2": "Quality Guaranteed",
+                "val1-t": "Integrity First", "val1-d": "We uphold transparency in every negotiation and transaction to build long-term trust.",
+                "val2-t": "Superior Quality", "val2-d": "Strict QC processes ensure products reach you in perfect condition.",
+                "val3-t": "Sustainability", "val3-d": "Committed to fair trade practices and eco-friendly ecosystems.",
+                "cp-visi-t": "Strategic Vision", "cp-visi-d": "To be a global market leader in Indonesian commodity distribution recognized for supply chain innovation and social contribution.",
+                "cp-misi-t": "Operational Mission", "cp-misi-1": "Certified global quality agriculture products.", "cp-misi-2": "Safe, efficient, and timely logistics ecosystem.", "cp-misi-3": "Fair Trade principles for farmer welfare."
             }
         };
 
@@ -407,42 +438,110 @@
             {
                 id: "daun-pisang",
                 name: { id: "Daun Pisang Klutuk", en: "Klutuk Banana Leaves" },
-                category: { id: "Hortikultura", en: "Horticulture" },
+                category: { id: "Agrikultur", en: "Agriculture" },
                 desc: { id: "Grade A, Segar, & Vacuum Pack.", en: "Grade A, Fresh, & Vacuum Packed." },
-                longDesc: { id: "Daun Pisang Klutuk pilihan pasar premium. Tekstur elastis, aromatik.", en: "Premium Klutuk Banana Leaves. Elastic and aromatic." },
+                longDesc: { id: "Daun Pisang Klutuk pilihan pasar premium. Tekstur elastis, aromatik, sangat cocok untuk pembungkus makanan kelas ekspor.", en: "Premium Klutuk Banana Leaves. Elastic, aromatic, and perfect for export-grade food wrapping." },
                 images: ["https://images.unsplash.com/photo-1596434455581-228723384249?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Grade: Ekspor", "Pack: Vacuum"], en: ["Grade: Export", "Pack: Vacuum"] },
-                shipping: { min: "200 KG", terms: "FOB/CIF" }
+                specs: { id: ["Grade: Ekspor", "Pack: Vacuum", "Lebar: 30-40cm"], en: ["Grade: Export", "Pack: Vacuum", "Width: 30-40cm"] }
             },
             {
                 id: "manggis",
                 name: { id: "Manggis Premium", en: "Premium Mangosteen" },
                 category: { id: "Buah Segar", en: "Fresh Fruits" },
                 desc: { id: "Export Quality, Bersih.", en: "Export Quality, Clean." },
-                longDesc: { id: "Manggis pilihan dengan kulit bersih and daging buah manis.", en: "Selected mangosteen with clean skin and sweet fruit meat." },
+                longDesc: { id: "Manggis pilihan dengan kulit bersih dan daging buah putih salju. Dipanen dari perkebunan pilihan.", en: "Selected mangosteen with clean skin and snow-white flesh. Harvested from selected orchards." },
                 images: ["https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Size: 4-6/kg", "Bebas Getah"], en: ["Size: 4-6/kg", "No Sap"] },
-                shipping: { min: "1 Ton", terms: "FOB" }
+                specs: { id: ["Size: 4-6/kg", "Bebas Getah", "Maturity: 70-80%"], en: ["Size: 4-6/kg", "No Sap", "Maturity: 70-80%"] }
             },
             {
                 id: "kopi-gayo",
                 name: { id: "Kopi Arabika Gayo", en: "Gayo Arabica Coffee" },
-                category: { id: "Minuman", en: "Beverages" },
+                category: { id: "Rempah & Minuman", en: "Spices & Beverages" },
                 desc: { id: "Specialty Grade, Full Washed.", en: "Specialty Grade, Full Washed." },
-                longDesc: { id: "Biji kopi Arabika Gayo dataran tinggi. Aroma floral intens.", en: "Gayo Arabica highland beans. Intense floral aroma." },
+                longDesc: { id: "Biji kopi Arabika Gayo dataran tinggi Aceh. Memiliki cita rasa floral yang kuat dan acidity yang seimbang.", en: "Aceh highland Gayo Arabica coffee beans. Strong floral notes and balanced acidity." },
                 images: ["https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Grade: 1", "Ketinggian: 1500m"], en: ["Grade: 1", "Altitude: 1500m"] },
-                shipping: { min: "1 Ton", terms: "FOB" }
+                specs: { id: ["Grade: 1", "Moisture: 12%", "Defect: <3%"], en: ["Grade: 1", "Moisture: 12%", "Defect: <3%"] }
+            },
+            {
+                id: "cengkeh",
+                name: { id: "Cengkeh Kering", en: "Dried Cloves" },
+                category: { id: "Rempah & Minuman", en: "Spices & Beverages" },
+                desc: { id: "Kadar Air Rendah, Harum.", en: "Low Moisture, Aromatic." },
+                longDesc: { id: "Cengkeh asli Indonesia dengan kualitas pengeringan matahari alami. Sangat cocok untuk bahan rempah dan industri.", en: "Indonesian cloves with natural sun-drying quality. Ideal for spices and industrial use." },
+                images: ["https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Grade: Lal Pari", "Moisture: 10-12%", "Stems: <1%"], en: ["Grade: Lal Pari", "Moisture: 10-12%", "Stems: <1%"] }
+            },
+            {
+                id: "kayu-manis",
+                name: { id: "Kayu Manis (Cinnamon)", en: "Cinnamon Sticks" },
+                category: { id: "Rempah & Minuman", en: "Spices & Beverages" },
+                desc: { id: "Kerinci Quality, Scraped.", en: "Kerinci Quality, Scraped." },
+                longDesc: { id: "Kayu manis jenis Cassia Vera dari Kerinci. Aroma manis pedas yang kuat dan warna cokelat kemerahan alami.", en: "Cassia Vera cinnamon from Kerinci. Strong sweet-spicy aroma and natural reddish-brown color." },
+                images: ["https://images.unsplash.com/photo-1599940824399-b87987cb5733?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Type: KA/KB/KC", "Length: 8-10cm", "Clean: Scraped"], en: ["Type: KA/KB/KC", "Length: 8-10cm", "Clean: Scraped"] }
+            },
+            {
+                id: "vanili",
+                name: { id: "Vanili Planifolia", en: "Vanilla Planifolia" },
+                category: { id: "Rempah & Minuman", en: "Spices & Beverages" },
+                desc: { id: "Gourmet Grade, Oily.", en: "Gourmet Grade, Oily." },
+                longDesc: { id: "Polong vanili kualitas gourmet. Sangat lembap, berminyak, dan kaya akan kandungan vanillin alami.", en: "Gourmet quality vanilla beans. Moist, oily, and rich in natural vanillin content." },
+                images: ["https://images.unsplash.com/photo-1594913221998-3f412959800e?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Length: 15-20cm", "Moisture: 30-35%", "Color: Black"], en: ["Length: 15-20cm", "Moisture: 30-35%", "Color: Black"] }
+            },
+            {
+                id: "kelapa-tua",
+                name: { id: "Kelapa Tua (Matured)", en: "Matured Coconut" },
+                category: { id: "Agrikultur", en: "Agriculture" },
+                desc: { id: "Semi-Husked, Heavy Weight.", en: "Semi-Husked, Heavy Weight." },
+                longDesc: { id: "Kelapa tua pilihan untuk industri santan dan minyak. Daging tebal dan air minimal.", en: "Selected matured coconuts for coconut milk and oil industry. Thick flesh and minimal water." },
+                images: ["https://images.unsplash.com/photo-1550804476-0969ba423810?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Weight: 800g - 1.2kg", "Type: Semi-Husked", "Circum: 35cm+"], en: ["Weight: 800g - 1.2kg", "Type: Semi-Husked", "Circum: 35cm+"] }
+            },
+            {
+                id: "lada-putih",
+                name: { id: "Lada Putih (Muntok)", en: "White Pepper (Muntok)" },
+                category: { id: "Rempah & Minuman", en: "Spices & Beverages" },
+                desc: { id: "Density 600g/l, Cleaned.", en: "Density 600g/l, Cleaned." },
+                longDesc: { id: "Lada putih Muntok yang terkenal dengan tingkat kepedasan dan aroma khasnya. Diproses secara higienis.", en: "Famous Muntok white pepper known for its heat and distinct aroma. Hygienically processed." },
+                images: ["https://images.unsplash.com/photo-1599940778173-e276d4acb2bb?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Density: 600g/l", "Moisture: 13%", "Black Berries: <2%"], en: ["Density: 600g/l", "Moisture: 13%", "Black Berries: <2%"] }
+            },
+            {
+                id: "jahe-gajah",
+                name: { id: "Jahe Gajah Segar", en: "Fresh Elephant Ginger" },
+                category: { id: "Agrikultur", en: "Agriculture" },
+                desc: { id: "Size 100g+, Cleaned.", en: "Size 100g+, Cleaned." },
+                longDesc: { id: "Jahe gajah berukuran besar dengan tekstur daging yang empuk dan rasa yang tidak terlalu pedas dibanding jahe emprit.", en: "Large elephant ginger with tender flesh texture and milder heat compared to small ginger." },
+                images: ["https://images.unsplash.com/photo-1599940824399-b87987cb5733?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Weight: 100-300g", "Condition: Firm/Clean", "Age: 9-10 Mo"], en: ["Weight: 100-300g", "Condition: Firm/Clean", "Age: 9-10 Mo"] }
             },
             {
                 id: "briket",
-                name: { id: "Briket Batok Kelapa", en: "Coconut Shell Briquettes" },
+                name: { id: "Briket Arang Kelapa", en: "Coconut Shell Charcoal" },
                 category: { id: "Energi", en: "Energy" },
-                desc: { id: "Panas Tinggi, Abu Putih.", en: "High Heat, White Ash." },
-                longDesc: { id: "Briket 100% kelapa alami untuk Shisha. Tahan lama.", en: "100% natural coconut briquettes for Shisha. Long lasting." },
-                images: ["https://images.unsplash.com/photo-1600100397608-f09068da4017?auto=format&fit=crop&q=80&w=800"],
-                specs: { id: ["Abu: <2.5%", "Tanpa Bau"], en: ["Ash: <2.5%", "Odorless"] },
-                shipping: { min: "18 Tons", terms: "FOB" }
+                desc: { id: "Premium Shisha Quality.", en: "Premium Shisha Quality." },
+                longDesc: { id: "Briket arang tempurung kelapa tanpa asap dan tidak berbau. Sangat awet dan panas stabil.", en: "Smokeless and odorless coconut shell charcoal briquettes. Long-lasting with stable heat." },
+                images: ["https://images.unsplash.com/photo-1605881528191-68f38c78e3d3?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Ash Content: <2.5%", "Burning: 2-3 Hours", "Calorie: 7500"], en: ["Ash Content: <2.5%", "Burning: 2-3 Hours", "Calorie: 7500"] }
+            },
+            {
+                id: "buah-naga",
+                name: { id: "Buah Naga Merah", en: "Red Dragon Fruit" },
+                category: { id: "Buah Segar", en: "Fresh Fruits" },
+                desc: { id: "Organic Grade, Sweet.", en: "Organic Grade, Sweet." },
+                longDesc: { id: "Buah naga merah organik dengan tingkat kemanisan (Brix) yang tinggi. Dipanen tepat waktu.", en: "Organic red dragon fruit with high sweetness level (Brix). Harvested at the perfect time." },
+                images: ["https://images.unsplash.com/photo-1527325241571-c81c9905ee01?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Weight: 400-600g", "Brix: 13-15", "Grade: A"], en: ["Weight: 400-600g", "Brix: 13-15", "Grade: A"] }
+            },
+            {
+                id: "pinang",
+                name: { id: "Pinang Belah (Split)", en: "Split Betel Nut" },
+                category: { id: "Agrikultur", en: "Agriculture" },
+                desc: { id: "90/95 Quality, Dried.", en: "90/95 Quality, Dried." },
+                longDesc: { id: "Pinang belah kualitas ekspor. Dikeringkan secara alami hingga mencapai kadar air yang rendah.", en: "Export quality split betel nuts. Naturally dried to achieve low moisture content." },
+                images: ["https://images.unsplash.com/photo-1596434455581-228723384249?auto=format&fit=crop&q=80&w=800"],
+                specs: { id: ["Grade: 90/95 Good Run", "Moisture: <5%", "Style: Split"], en: ["Grade: 90/95 Good Run", "Moisture: <5%", "Style: Split"] }
             }
         ];
 
@@ -458,10 +557,6 @@
                 const key = el.getAttribute('data-i18n');
                 el.textContent = i18n[lang][key];
             });
-            
-            document.getElementById('btn-id').className = lang === 'id' ? 'text-orange-500 cursor-pointer' : 'text-slate-500 cursor-pointer hover:text-white';
-            document.getElementById('btn-en').className = lang === 'en' ? 'text-orange-500 cursor-pointer' : 'text-slate-500 cursor-pointer hover:text-white';
-
             initCategoryFilter();
             renderProducts();
         }
@@ -502,6 +597,12 @@
             renderProducts(filtered);
         }
 
+        function changeModalImage(url, thumbEl) {
+            document.getElementById('main-modal-img').src = url;
+            document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('thumb-active'));
+            thumbEl.classList.add('thumb-active');
+        }
+
         function openModal(id) {
             const p = PRODUCT_DATA.find(item => item.id === id);
             const content = document.getElementById('modal-content');
@@ -510,7 +611,13 @@
                 <div class="flex flex-col lg:flex-row gap-10">
                     <div class="w-full lg:w-3/5">
                         <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-100 mb-4 aspect-video lg:aspect-square">
-                            <img id="main-modal-img" src="${p.images[0]}" class="w-full h-full object-cover transition-opacity duration-300">
+                            <img id="main-modal-img" src="${p.images[0]}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto py-2 custom-scrollbar">
+                            ${p.images.map((img, idx) => `
+                                <img src="${img}" onclick="changeModalImage('${img}', this)" 
+                                     class="modal-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent transition-all hover:opacity-100 opacity-60 ${idx===0?'thumb-active':''}">
+                            `).join('')}
                         </div>
                     </div>
                     <div class="w-full lg:w-2/5 flex flex-col">
@@ -519,13 +626,11 @@
                             <h2 class="text-3xl font-black text-blue-950 italic uppercase leading-none tracking-tighter">${p.name[currentLang]}</h2>
                         </div>
                         <p class="text-slate-500 text-[13px] leading-relaxed mb-8 border-l-4 border-slate-100 pl-4 italic">${p.longDesc[currentLang]}</p>
-                        <div class="space-y-4 mb-10">
-                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
-                                <span class="text-[9px] text-slate-400 font-black uppercase block mb-3 tracking-widest">${i18n[currentLang]['spec-label']}</span>
-                                <ul class="text-[11px] font-bold text-slate-700 space-y-2">
-                                    ${p.specs[currentLang].map(s => `<li class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> ${s}</li>`).join('')}
-                                </ul>
-                            </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 mb-10">
+                            <span class="text-[9px] text-slate-400 font-black uppercase block mb-3 tracking-widest">${i18n[currentLang]['spec-label']}</span>
+                            <ul class="text-[11px] font-bold text-slate-700 space-y-2">
+                                ${p.specs[currentLang].map(s => `<li class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> ${s}</li>`).join('')}
+                            </ul>
                         </div>
                         <button onclick="orderViaWA('${p.name[currentLang]}')" class="mt-auto w-full bg-green-600 text-white font-black py-5 rounded-2xl hover:bg-green-700 shadow-xl shadow-green-600/20 text-[11px] italic transition-all uppercase flex items-center justify-center gap-3 tracking-[0.2em]">
                             <i class="fab fa-whatsapp text-xl"></i> ${i18n[currentLang]['chat-label']}
