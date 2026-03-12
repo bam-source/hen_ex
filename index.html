@@ -10,19 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         
         .hero-mini { 
-            background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
             url('https://images.unsplash.com/photo-1555505019-8c3f1c4aba5f?auto=format&fit=crop&q=80&w=1920'); 
             background-size: cover; background-position: center; 
         }
         
         .glass-nav { 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
         }
         
         .product-card:hover { transform: translateY(-6px); }
@@ -48,58 +48,78 @@
 
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background: #ea580c;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-slate-900">
 
-    <!-- Top Bar (Multi-language) -->
-    <div class="bg-[#0F172A] text-white py-2 px-4 hidden lg:block border-b border-white/5">
-        <div class="max-w-7xl mx-auto flex justify-end items-center text-[11px] font-semibold tracking-wider">
-            <div class="flex items-center gap-4">
+    <!-- Professional Top Bar -->
+    <div class="bg-[#0F172A] text-white py-2 px-6 hidden lg:block border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-[11px] font-medium tracking-wide">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2 opacity-80">
+                    <i class="fas fa-envelope text-orange-500"></i> contact@indoexport.global
+                </span>
+                <span class="flex items-center gap-2 opacity-80">
+                    <i class="fas fa-phone text-orange-500"></i> +62 812-3456-789
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
                 <div class="flex gap-3">
-                    <button onclick="setLanguage('id')" id="btn-id" class="text-orange-500 cursor-pointer hover:opacity-80 transition">ID</button>
-                    <span class="text-slate-700">|</span>
-                    <button onclick="setLanguage('en')" id="btn-en" class="text-slate-500 cursor-pointer hover:text-white transition">EN</button>
+                    <button onclick="setLanguage('id')" id="btn-id" class="text-orange-500 cursor-pointer font-bold">ID</button>
+                    <span class="opacity-20">|</span>
+                    <button onclick="setLanguage('en')" id="btn-en" class="opacity-50 cursor-pointer hover:text-white transition">EN</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Navigation -->
+    <!-- Professional Navigation -->
     <nav class="sticky top-0 w-full z-50 glass-nav border-b border-slate-200/60 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 h-16 md:h-20 flex justify-between items-center">
-            <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center gap-3">
-                <div class="bg-blue-950 w-10 h-10 rounded-lg flex items-center justify-center text-white shadow-lg shadow-blue-900/20">
-                    <i class="fas fa-ship text-lg"></i>
+        <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex justify-between items-center">
+            <!-- Brand Identity -->
+            <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center gap-4">
+                <div class="bg-[#0F172A] w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-xl shadow-blue-900/10">
+                    <i class="fas fa-ship text-xl"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-lg font-extrabold text-blue-950 tracking-tighter leading-none uppercase">INDO<span class="text-orange-600">EXPORT</span></span>
-                    <span class="text-[9px] font-bold text-slate-400 tracking-[0.3em] uppercase leading-none mt-1">Global Trade Hub</span>
+                    <span class="text-xl font-extrabold text-[#0F172A] tracking-tight leading-none">INDO<span class="text-orange-600">EXPORT</span></span>
+                    <span class="text-[10px] font-bold text-slate-400 tracking-[0.25em] uppercase leading-none mt-1.5">Global Trade Hub</span>
                 </div>
             </a>
 
-            <!-- Symmetrical Navigation Buttons -->
-            <div class="flex items-center gap-2 md:gap-3">
-                <a href="javascript:void(0)" onclick="showPage('home')" class="group flex items-center gap-2 bg-[#0F172A] text-white px-3 md:px-5 py-2.5 rounded-xl text-[10px] md:text-[11px] font-black shadow-lg shadow-blue-900/20 hover:bg-orange-600 hover:-translate-y-0.5 transition-all duration-300">
-                    <div class="hidden md:flex w-6 h-6 rounded-full bg-white/10 items-center justify-center group-hover:bg-white/20">
-                        <i class="fas fa-home text-[10px]"></i>
-                    </div>
-                    <span data-i18n="nav-home">BERANDA</span>
+            <!-- Professional Navigation Menu -->
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="javascript:void(0)" onclick="showPage('home')" class="nav-link relative text-[13px] font-bold text-[#0F172A] tracking-wider uppercase hover:text-orange-600 transition-colors">
+                    <span data-i18n="nav-home">Beranda</span>
                 </a>
-                
-                <a href="javascript:void(0)" onclick="showPage('company')" class="group flex items-center gap-2 bg-[#0F172A] text-white px-3 md:px-5 py-2.5 rounded-xl text-[10px] md:text-[11px] font-black shadow-lg shadow-blue-900/20 hover:bg-orange-600 hover:-translate-y-0.5 transition-all duration-300">
-                    <div class="hidden md:flex w-6 h-6 rounded-full bg-white/10 items-center justify-center group-hover:bg-white/20">
-                        <i class="fas fa-building text-[10px]"></i>
-                    </div>
-                    <span data-i18n="nav-company">COMPANY</span>
+                <a href="javascript:void(0)" onclick="showPage('company')" class="nav-link relative text-[13px] font-bold text-[#0F172A] tracking-wider uppercase hover:text-orange-600 transition-colors">
+                    <span data-i18n="nav-company">Perusahaan</span>
                 </a>
+                <a href="javascript:void(0)" onclick="showPage('owner')" class="nav-link relative text-[13px] font-bold text-[#0F172A] tracking-wider uppercase hover:text-orange-600 transition-colors">
+                    <span data-i18n="nav-owner">Executive Profile</span>
+                </a>
+            </div>
 
-                <a href="javascript:void(0)" onclick="showPage('owner')" class="group flex items-center gap-2 bg-[#0F172A] text-white px-3 md:px-5 py-2.5 rounded-xl text-[10px] md:text-[11px] font-black shadow-lg shadow-blue-900/20 hover:bg-orange-600 hover:-translate-y-0.5 transition-all duration-300">
-                    <div class="hidden md:flex w-6 h-6 rounded-full bg-white/10 items-center justify-center group-hover:bg-white/20">
-                        <i class="fas fa-user-tie text-[10px]"></i>
-                    </div>
-                    <span data-i18n="nav-owner">OWNER</span>
-                </a>
+            <!-- Mobile Menu Trigger -->
+            <div class="lg:hidden flex items-center gap-2">
+                <button onclick="showPage('home')" class="p-2 text-[#0F172A]"><i class="fas fa-home"></i></button>
+                <button onclick="showPage('company')" class="p-2 text-[#0F172A]"><i class="fas fa-building"></i></button>
+                <button onclick="showPage('owner')" class="p-2 text-[#0F172A]"><i class="fas fa-user-tie"></i></button>
             </div>
         </div>
     </nav>
@@ -107,79 +127,79 @@
     <!-- Page: HOME -->
     <div id="page-home" class="page-content page-active">
         <!-- Hero Section -->
-        <section class="hero-mini py-20 px-6 text-center text-white relative overflow-hidden">
+        <section class="hero-mini py-24 px-6 text-center text-white relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
             </div>
             <div class="max-w-4xl mx-auto relative z-10">
-                <span data-i18n="hero-tag" class="inline-block border border-orange-500/50 text-orange-400 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Penyuplai Komoditas Terpercaya</span>
-                <h1 id="hero-title" class="text-4xl md:text-6xl font-black mb-4 leading-tight uppercase italic tracking-tighter">Connecting Indonesia <br>to the <span class="text-orange-500 not-italic">World</span></h1>
-                <p data-i18n="hero-desc" class="text-sm md:text-base text-slate-400 font-medium max-w-2xl mx-auto opacity-90">Kualitas produk terbaik dari petani lokal untuk standar pasar internasional.</p>
+                <span data-i18n="hero-tag" class="inline-block border border-orange-500/50 text-orange-400 px-6 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.4em] mb-8 bg-orange-500/5">Penyuplai Komoditas Terpercaya</span>
+                <h1 id="hero-title" class="text-4xl md:text-7xl font-black mb-6 leading-tight uppercase italic tracking-tighter">Connecting Indonesia <br>to the <span class="text-orange-500 not-italic">World</span></h1>
+                <p data-i18n="hero-desc" class="text-sm md:text-lg text-slate-300 font-medium max-w-2xl mx-auto opacity-90 leading-relaxed">Kualitas produk terbaik dari petani lokal untuk standar pasar internasional dengan layanan profesional.</p>
             </div>
         </section>
 
         <!-- Main Content -->
-        <main class="max-w-7xl mx-auto px-6 -mt-10 relative z-10">
+        <main class="max-w-7xl mx-auto px-6 -mt-12 relative z-10">
             <!-- Filter Bar -->
-            <div class="bg-white p-4 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-4 items-center justify-between border border-slate-100 mb-12">
-                <div class="flex items-center gap-4 px-2">
-                    <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400">
+            <div class="bg-white p-5 rounded-3xl shadow-2xl flex flex-col md:flex-row gap-6 items-center justify-between border border-slate-100 mb-16">
+                <div class="flex items-center gap-5 px-3">
+                    <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-orange-600 shadow-inner">
                         <i class="fas fa-search"></i>
                     </div>
                     <div>
-                        <span data-i18n="filter-label" class="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Cari Komoditas</span>
-                        <span data-i18n="filter-sub" class="text-xs font-bold text-blue-950">Filter Kategori</span>
+                        <span data-i18n="filter-label" class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block">Katalog Produk</span>
+                        <span data-i18n="filter-sub" class="text-sm font-bold text-blue-950">Temukan Komoditas Anda</span>
                     </div>
                 </div>
                 <div class="w-full md:w-auto">
-                    <select id="category-filter" onchange="filterProducts(this.value)" class="w-full sm:w-64 bg-slate-50 border border-slate-200 text-slate-700 font-bold py-3 px-6 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 text-[11px] uppercase cursor-pointer transition-all">
+                    <select id="category-filter" onchange="filterProducts(this.value)" class="w-full sm:w-72 bg-slate-50 border border-slate-200 text-slate-700 font-bold py-4 px-8 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-500 text-[12px] uppercase cursor-pointer transition-all">
                     </select>
                 </div>
             </div>
 
             <!-- Product Grid -->
-            <div id="product-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-20">
+            <div id="product-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pb-24">
             </div>
 
             <!-- How to Order Section -->
-            <section id="how-to-order" class="mb-24">
-                <div class="bg-white rounded-[2rem] p-10 md:p-16 shadow-sm border border-slate-100 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-slate-50 rounded-full -mr-32 -mt-32 opacity-50"></div>
+            <section id="how-to-order" class="mb-32">
+                <div class="bg-white rounded-[3rem] p-12 md:p-20 shadow-sm border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-80 h-80 bg-slate-50 rounded-full -mr-40 -mt-40 opacity-50"></div>
                     
-                    <div class="text-center mb-16 relative z-10">
-                        <h3 data-i18n="proc-title" class="text-2xl md:text-3xl font-black text-blue-950 uppercase italic tracking-tighter">Prosedur Kerja Sama</h3>
-                        <div class="w-16 h-1 bg-orange-600 mx-auto mt-4 rounded-full"></div>
+                    <div class="text-center mb-20 relative z-10">
+                        <h3 data-i18n="proc-title" class="text-3xl md:text-4xl font-black text-blue-950 uppercase italic tracking-tighter">Prosedur Kerja Sama</h3>
+                        <div class="w-20 h-1.5 bg-orange-600 mx-auto mt-5 rounded-full"></div>
                     </div>
                     
-                    <div class="grid md:grid-cols-3 gap-12 relative z-10">
+                    <div class="grid md:grid-cols-3 gap-16 relative z-10">
                         <div class="text-center group">
                             <div class="relative">
-                                <div class="w-16 h-16 bg-slate-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-600 group-hover:text-white transition-all duration-500">
-                                    <i class="fas fa-search text-xl"></i>
+                                <div class="w-20 h-20 bg-slate-50 text-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:bg-orange-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <i class="fas fa-search text-2xl"></i>
                                 </div>
                             </div>
-                            <h4 data-i18n="step1-t" class="text-sm font-black text-blue-950 uppercase mb-3">Pilih Komoditas</h4>
-                            <p data-i18n="step1-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Tinjau katalog atau sampaikan kebutuhan spesifik Anda.</p>
+                            <h4 data-i18n="step1-t" class="text-base font-black text-blue-950 uppercase mb-4 tracking-tight">Pilih Komoditas</h4>
+                            <p data-i18n="step1-d" class="text-[13px] text-slate-500 leading-relaxed px-4">Tinjau katalog premium kami atau sampaikan kebutuhan spesifik pasar Anda.</p>
                         </div>
                         
                         <div class="text-center group">
                             <div class="relative">
-                                <div class="w-16 h-16 bg-slate-50 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 group-hover:text-white transition-all duration-500">
-                                    <i class="fab fa-whatsapp text-2xl"></i>
+                                <div class="w-20 h-20 bg-slate-50 text-green-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:bg-green-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <i class="fab fa-whatsapp text-3xl"></i>
                                 </div>
                             </div>
-                            <h4 data-i18n="step2-t" class="text-sm font-black text-blue-950 uppercase mb-3">Konsultasi Admin</h4>
-                            <p data-i18n="step2-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Dapatkan penawaran harga terbaik (FOB/CNF/CIF).</p>
+                            <h4 data-i18n="step2-t" class="text-base font-black text-blue-950 uppercase mb-4 tracking-tight">Konsultasi Admin</h4>
+                            <p data-i18n="step2-d" class="text-[13px] text-slate-500 leading-relaxed px-4">Dapatkan penawaran harga terbaik dengan skema FOB/CNF/CIF yang kompetitif.</p>
                         </div>
 
                         <div class="text-center group">
                             <div class="relative">
-                                <div class="w-16 h-16 bg-slate-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
-                                    <i class="fas fa-ship text-xl"></i>
+                                <div class="w-20 h-20 bg-slate-50 text-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                                    <i class="fas fa-ship text-2xl"></i>
                                 </div>
                             </div>
-                            <h4 data-i18n="step3-t" class="text-sm font-black text-blue-950 uppercase mb-3">Kontrak & Pengiriman</h4>
-                            <p data-i18n="step3-d" class="text-[11px] text-slate-500 leading-relaxed px-4">Penerbitan kontrak resmi dan logistik internasional.</p>
+                            <h4 data-i18n="step3-t" class="text-base font-black text-blue-950 uppercase mb-4 tracking-tight">Kontrak & Pengiriman</h4>
+                            <p data-i18n="step3-d" class="text-[13px] text-slate-500 leading-relaxed px-4">Penerbitan kontrak resmi dan manajemen logistik internasional hingga tujuan.</p>
                         </div>
                     </div>
                 </div>
@@ -189,104 +209,101 @@
 
     <!-- Page: COMPANY PROFILE -->
     <div id="page-company" class="page-content">
-        <section class="py-20 px-6 bg-white overflow-hidden">
+        <section class="py-24 px-6 bg-white overflow-hidden">
             <div class="max-w-6xl mx-auto">
-                <!-- Header & Intro -->
-                <div class="flex flex-col md:flex-row gap-16 items-center mb-32">
+                <div class="flex flex-col md:flex-row gap-20 items-center mb-40">
                     <div class="w-full md:w-1/2">
-                        <span data-i18n="cp-tag" class="text-orange-600 font-black uppercase text-[10px] tracking-[0.4em] mb-4 block">Tentang Perusahaan</span>
-                        <h2 data-i18n="cp-title" class="text-4xl md:text-5xl font-black text-blue-950 uppercase italic tracking-tighter leading-none mb-6">Empowering Indonesia's <br>Potential for Global <span class="text-orange-600">Success.</span></h2>
-                        <p data-i18n="cp-desc" class="text-slate-500 text-sm leading-relaxed mb-8">IndoExport Global adalah entitas perdagangan internasional terkemuka yang berpusat di Indonesia, berdedikasi untuk menjembatani sumber daya alam berkualitas tinggi milik Nusantara ke pasar global. Kami mengintegrasikan teknologi logistik modern dengan kearifan lokal untuk memastikan setiap pengiriman memenuhi standar mutu internasional.</p>
+                        <span data-i18n="cp-tag" class="text-orange-600 font-black uppercase text-[11px] tracking-[0.4em] mb-5 block">Tentang Perusahaan</span>
+                        <h2 data-i18n="cp-title" class="text-4xl md:text-6xl font-black text-blue-950 uppercase italic tracking-tighter leading-[1.1] mb-8">Empowering Indonesia's <br>Potential for Global <span class="text-orange-600">Success.</span></h2>
+                        <p data-i18n="cp-desc" class="text-slate-500 text-base leading-relaxed mb-10">IndoExport Global adalah entitas perdagangan internasional terkemuka yang berpusat di Indonesia, berdedikasi untuk menjembatani sumber daya alam berkualitas tinggi milik Nusantara ke pasar global.</p>
                         
-                        <div class="grid grid-cols-2 gap-8 border-t border-slate-100 pt-10">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg">
+                        <div class="grid grid-cols-2 gap-10 border-t border-slate-100 pt-12">
+                            <div class="flex items-center gap-5">
+                                <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-xl shadow-sm">
                                     <i class="fas fa-globe-asia"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-2xl font-black text-blue-950">20+</span>
-                                    <span data-i18n="cp-stat1" class="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Global Destinations</span>
+                                    <span class="block text-3xl font-black text-blue-950">20+</span>
+                                    <span data-i18n="cp-stat1" class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Global Destinations</span>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center text-lg">
+                            <div class="flex items-center gap-5">
+                                <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center text-xl shadow-sm">
                                     <i class="fas fa-certificate"></i>
                                 </div>
                                 <div>
-                                    <span class="block text-2xl font-black text-blue-950">100%</span>
-                                    <span data-i18n="cp-stat2" class="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Quality Guaranteed</span>
+                                    <span class="block text-3xl font-black text-blue-950">100%</span>
+                                    <span data-i18n="cp-stat2" class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Quality Guaranteed</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 relative">
-                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-orange-600 opacity-10 rounded-full blur-3xl"></div>
-                        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 border-[12px] border-slate-50">
+                        <div class="absolute -top-10 -right-10 w-48 h-48 bg-orange-600 opacity-10 rounded-full blur-3xl"></div>
+                        <div class="rounded-[3rem] overflow-hidden shadow-2xl relative z-10 border-[15px] border-slate-50">
                             <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200" alt="Logistik Ekspor Profesional" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
                         </div>
-                        <div class="absolute -bottom-6 -left-6 bg-[#0F172A] p-6 rounded-2xl shadow-xl z-20">
-                            <i class="fas fa-award text-orange-500 text-3xl mb-2"></i>
-                            <div class="text-white text-[10px] font-black uppercase tracking-widest">Certified Export Partner</div>
+                        <div class="absolute -bottom-8 -left-8 bg-[#0F172A] p-8 rounded-3xl shadow-2xl z-20 border border-white/10">
+                            <i class="fas fa-award text-orange-500 text-4xl mb-3"></i>
+                            <div class="text-white text-[11px] font-black uppercase tracking-[0.2em]">Certified Global Partner</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Core Values & Services -->
-                <div class="grid md:grid-cols-3 gap-6 mb-32">
-                    <div class="bg-[#F8FAFC] p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
-                        <div class="w-12 h-12 bg-white text-blue-950 rounded-xl flex items-center justify-center shadow-sm mb-6 group-hover:bg-blue-950 group-hover:text-white transition-all">
-                            <i class="fas fa-handshake"></i>
+                <div class="grid md:grid-cols-3 gap-8 mb-40">
+                    <div class="bg-[#F8FAFC] p-12 rounded-[3rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                        <div class="w-14 h-14 bg-white text-blue-950 rounded-2xl flex items-center justify-center shadow-md mb-8 group-hover:bg-blue-950 group-hover:text-white transition-all">
+                            <i class="fas fa-handshake text-xl"></i>
                         </div>
-                        <h3 data-i18n="val1-t" class="text-lg font-black text-blue-950 uppercase italic mb-3">Integrity First</h3>
-                        <p data-i18n="val1-d" class="text-slate-500 text-[11px] leading-relaxed">Kami menjunjung tinggi transparansi dalam setiap negosiasi dan transaksi untuk membangun kepercayaan jangka panjang.</p>
+                        <h3 data-i18n="val1-t" class="text-xl font-black text-blue-950 uppercase italic mb-4">Integrity First</h3>
+                        <p data-i18n="val1-d" class="text-slate-500 text-sm leading-relaxed">Kami menjunjung tinggi transparansi dalam setiap negosiasi untuk membangun kepercayaan jangka panjang.</p>
                     </div>
-                    <div class="bg-[#F8FAFC] p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
-                        <div class="w-12 h-12 bg-white text-orange-600 rounded-xl flex items-center justify-center shadow-sm mb-6 group-hover:bg-orange-600 group-hover:text-white transition-all">
-                            <i class="fas fa-shield-alt"></i>
+                    <div class="bg-[#F8FAFC] p-12 rounded-[3rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                        <div class="w-14 h-14 bg-white text-orange-600 rounded-2xl flex items-center justify-center shadow-md mb-8 group-hover:bg-orange-600 group-hover:text-white transition-all">
+                            <i class="fas fa-shield-alt text-xl"></i>
                         </div>
-                        <h3 data-i18n="val2-t" class="text-lg font-black text-blue-950 uppercase italic mb-3">Superior Quality</h3>
-                        <p data-i18n="val2-d" class="text-slate-500 text-[11px] leading-relaxed">Proses kontrol kualitas (QC) kami yang ketat memastikan produk tiba di tangan Anda dalam kondisi sempurna.</p>
+                        <h3 data-i18n="val2-t" class="text-xl font-black text-blue-950 uppercase italic mb-4">Superior Quality</h3>
+                        <p data-i18n="val2-d" class="text-slate-500 text-sm leading-relaxed">Proses kontrol kualitas (QC) kami yang ketat memastikan produk tiba dalam kondisi sempurna.</p>
                     </div>
-                    <div class="bg-[#F8FAFC] p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
-                        <div class="w-12 h-12 bg-white text-green-600 rounded-xl flex items-center justify-center shadow-sm mb-6 group-hover:bg-green-600 group-hover:text-white transition-all">
-                            <i class="fas fa-leaf"></i>
+                    <div class="bg-[#F8FAFC] p-12 rounded-[3rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                        <div class="w-14 h-14 bg-white text-green-600 rounded-2xl flex items-center justify-center shadow-md mb-8 group-hover:bg-green-600 group-hover:text-white transition-all">
+                            <i class="fas fa-leaf text-xl"></i>
                         </div>
-                        <h3 data-i18n="val3-t" class="text-lg font-black text-blue-950 uppercase italic mb-3">Sustainability</h3>
-                        <p data-i18n="val3-d" class="text-slate-500 text-[11px] leading-relaxed">Berkomitmen pada praktik perdagangan yang adil bagi petani lokal dan ramah bagi ekosistem lingkungan.</p>
+                        <h3 data-i18n="val3-t" class="text-xl font-black text-blue-950 uppercase italic mb-4">Sustainability</h3>
+                        <p data-i18n="val3-d" class="text-slate-500 text-sm leading-relaxed">Berkomitmen pada praktik perdagangan adil bagi petani dan ramah bagi ekosistem lingkungan.</p>
                     </div>
                 </div>
 
-                <!-- Mission & Vision Deep Dive -->
-                <div class="bg-[#0F172A] rounded-[3rem] p-10 md:p-20 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
-                        <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+                <div class="bg-[#0F172A] rounded-[4rem] p-12 md:p-24 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+                        <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
                     </div>
                     
-                    <div class="grid md:grid-cols-2 gap-20 relative z-10">
+                    <div class="grid md:grid-cols-2 gap-24 relative z-10">
                         <div>
-                            <div class="flex items-center gap-4 mb-8">
-                                <div class="w-10 h-1 bg-orange-500"></div>
-                                <h3 data-i18n="cp-visi-t" class="text-2xl font-black text-white uppercase italic tracking-tighter">Visi Strategis</h3>
+                            <div class="flex items-center gap-5 mb-10">
+                                <div class="w-12 h-1.5 bg-orange-500"></div>
+                                <h3 data-i18n="cp-visi-t" class="text-3xl font-black text-white uppercase italic tracking-tighter">Visi Strategis</h3>
                             </div>
-                            <p data-i18n="cp-visi-d" class="text-slate-400 text-sm leading-relaxed">Menjadi pemimpin pasar global dalam distribusi komoditas unggulan Indonesia yang diakui atas inovasi rantai pasokan, keunggulan operasional, dan kontribusi sosial yang positif terhadap komunitas produsen lokal.</p>
+                            <p data-i18n="cp-visi-d" class="text-slate-400 text-base leading-relaxed opacity-90">Menjadi pemimpin pasar global dalam distribusi komoditas unggulan Indonesia yang diakui atas inovasi rantai pasokan dan kontribusi sosial yang positif.</p>
                         </div>
                         <div>
-                            <div class="flex items-center gap-4 mb-8">
-                                <div class="w-10 h-1 bg-blue-500"></div>
-                                <h3 data-i18n="cp-misi-t" class="text-2xl font-black text-white uppercase italic tracking-tighter">Misi Operasional</h3>
+                            <div class="flex items-center gap-5 mb-10">
+                                <div class="w-12 h-1.5 bg-blue-500"></div>
+                                <h3 data-i18n="cp-misi-t" class="text-3xl font-black text-white uppercase italic tracking-tighter">Misi Operasional</h3>
                             </div>
-                            <ul class="space-y-6">
-                                <li class="flex gap-4">
-                                    <div class="w-6 h-6 rounded-full bg-blue-900/50 flex items-center justify-center text-[10px] text-orange-500 font-bold shrink-0">01</div>
-                                    <span data-i18n="cp-misi-1" class="text-slate-400 text-xs">Menyediakan produk agrikultur dan komoditas pilihan yang bersertifikasi standar mutu global.</span>
+                            <ul class="space-y-8">
+                                <li class="flex gap-5">
+                                    <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-[11px] text-orange-500 font-bold shrink-0 border border-orange-500/20">01</div>
+                                    <span data-i18n="cp-misi-1" class="text-slate-400 text-sm">Menyediakan produk agrikultur bersertifikasi mutu global standar tertinggi.</span>
                                 </li>
-                                <li class="flex gap-4">
-                                    <div class="w-6 h-6 rounded-full bg-blue-900/50 flex items-center justify-center text-[10px] text-orange-500 font-bold shrink-0">02</div>
-                                    <span data-i18n="cp-misi-2" class="text-slate-400 text-xs">Membangun ekosistem logistik yang aman, efisien, dan tepat waktu untuk kepuasan mitra internasional.</span>
+                                <li class="flex gap-5">
+                                    <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-[11px] text-orange-500 font-bold shrink-0 border border-orange-500/20">02</div>
+                                    <span data-i18n="cp-misi-2" class="text-slate-400 text-sm">Membangun ekosistem logistik yang aman, efisien, dan tepat waktu.</span>
                                 </li>
-                                <li class="flex gap-4">
-                                    <div class="w-6 h-6 rounded-full bg-blue-900/50 flex items-center justify-center text-[10px] text-orange-500 font-bold shrink-0">03</div>
-                                    <span data-i18n="cp-misi-3" class="text-slate-400 text-xs">Menerapkan prinsip 'Fair Trade' untuk meningkatkan taraf hidup petani dan produsen skala kecil di Indonesia.</span>
+                                <li class="flex gap-5">
+                                    <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-[11px] text-orange-500 font-bold shrink-0 border border-orange-500/20">03</div>
+                                    <span data-i18n="cp-misi-3" class="text-slate-400 text-sm">Menerapkan prinsip Fair Trade untuk kesejahteraan petani Indonesia.</span>
                                 </li>
                             </ul>
                         </div>
@@ -296,52 +313,52 @@
         </section>
     </div>
 
-    <!-- Page: OWNER PROFILE -->
+    <!-- Page: EXECUTIVE PROFILE -->
     <div id="page-owner" class="page-content">
-        <section class="py-20 px-6 bg-white min-h-[70vh] flex items-center">
+        <section class="py-24 px-6 bg-white min-h-[75vh] flex items-center">
             <div class="max-w-5xl mx-auto w-full">
-                <div class="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-slate-100 shadow-sm relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-32 h-32 bg-orange-500/5 rounded-br-[5rem]"></div>
-                    <div class="absolute bottom-0 right-0 w-48 h-48 bg-blue-950/5 rounded-tl-[10rem]"></div>
+                <div class="bg-slate-50 rounded-[4rem] p-10 md:p-20 border border-slate-100 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-40 h-40 bg-orange-500/5 rounded-br-[6rem]"></div>
+                    <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-950/5 rounded-tl-[12rem]"></div>
 
-                    <div class="flex flex-col md:flex-row gap-12 items-center relative z-10">
-                        <div class="w-full md:w-1/3">
+                    <div class="flex flex-col md:flex-row gap-16 items-center relative z-10">
+                        <div class="w-full md:w-2/5">
                             <div class="relative group">
-                                <div class="absolute inset-0 bg-orange-600 rounded-[2.5rem] rotate-6 group-hover:rotate-0 transition-transform duration-500"></div>
-                                <div class="relative rounded-[2.5rem] overflow-hidden aspect-[3/4] shadow-2xl">
-                                    <img id="owner-image" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Owner Profile" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-orange-600 rounded-[3rem] rotate-6 group-hover:rotate-0 transition-transform duration-500 shadow-xl"></div>
+                                <div class="relative rounded-[3rem] overflow-hidden aspect-[4/5] shadow-2xl border-8 border-white">
+                                    <img id="owner-image" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Executive Profile" class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="w-full md:w-2/3">
-                            <div class="mb-6">
-                                <span data-i18n="owner-title" class="text-orange-600 font-black uppercase text-[10px] tracking-[0.4em] mb-3 block">Founder & CEO</span>
-                                <h2 id="owner-name" class="text-4xl md:text-5xl font-black text-blue-950 uppercase italic tracking-tighter leading-none mb-4">Aditya Pratama</h2>
-                                <div class="w-20 h-1.5 bg-blue-950 rounded-full"></div>
+                        <div class="w-full md:w-3/5">
+                            <div class="mb-10">
+                                <span data-i18n="owner-title" class="text-orange-600 font-black uppercase text-[11px] tracking-[0.4em] mb-4 block">Founder & CEO</span>
+                                <h2 id="owner-name" class="text-5xl md:text-6xl font-black text-blue-950 uppercase italic tracking-tighter leading-none mb-6">Aditya Pratama</h2>
+                                <div class="w-24 h-2 bg-blue-950 rounded-full"></div>
                             </div>
                             
-                            <p data-i18n="owner-bio" class="text-slate-500 text-sm md:text-base leading-relaxed mb-8 italic font-medium">
+                            <p data-i18n="owner-bio" class="text-slate-500 text-base md:text-lg leading-relaxed mb-10 italic font-medium opacity-80">
                                 "Kami percaya bahwa kejujuran dan kualitas adalah mata uang utama dalam perdagangan internasional. Fokus saya adalah memastikan setiap mitra kami mendapatkan nilai terbaik dari kekayaan alam Indonesia."
                             </p>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                                    <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center">
+                                <div class="flex items-center gap-5 p-5 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center shadow-inner">
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div>
-                                        <span class="text-[9px] text-slate-400 font-black uppercase block">Email</span>
-                                        <span class="text-xs font-bold text-blue-950">aditya@indoexport.global</span>
+                                        <span class="text-[10px] text-slate-400 font-black uppercase block tracking-wider">Email</span>
+                                        <span class="text-sm font-bold text-blue-950">aditya@indoexport.global</span>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
-                                        <i class="fab fa-linkedin-in"></i>
+                                <div class="flex items-center gap-5 p-5 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                                    <div class="w-12 h-12 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center shadow-inner">
+                                        <i class="fab fa-whatsapp"></i>
                                     </div>
                                     <div>
-                                        <span class="text-[9px] text-slate-400 font-black uppercase block">LinkedIn</span>
-                                        <span class="text-xs font-bold text-blue-950">aditya-pratama-global</span>
+                                        <span class="text-[10px] text-slate-400 font-black uppercase block tracking-wider">WhatsApp</span>
+                                        <span class="text-sm font-bold text-blue-950">+62 812-3456-789</span>
                                     </div>
                                 </div>
                             </div>
@@ -354,26 +371,35 @@
 
     <!-- Modal -->
     <div id="product-modal" onclick="if(event.target==this) closeModal()">
-        <div class="bg-white max-w-5xl w-full max-h-[95vh] overflow-y-auto rounded-[2rem] p-6 md:p-10 relative shadow-2xl custom-scrollbar">
-            <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-slate-100 text-slate-500 rounded-full hover:bg-red-500 hover:text-white transition-all z-20">
+        <div class="bg-white max-w-5xl w-full max-h-[95vh] overflow-y-auto rounded-[3rem] p-8 md:p-12 relative shadow-2xl custom-scrollbar border border-slate-100">
+            <button onclick="closeModal()" class="absolute top-8 right-8 w-12 h-12 flex items-center justify-center bg-slate-50 text-slate-400 rounded-full hover:bg-red-500 hover:text-white transition-all z-20 shadow-sm">
                 <i class="fas fa-times"></i>
             </button>
             <div id="modal-content"></div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-[#0F172A] text-white pt-20 pb-10">
+    <!-- Professional Footer (Simplified) -->
+    <footer class="bg-[#0F172A] text-white pt-20 pb-12">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="text-2xl font-black italic uppercase mb-6 tracking-tighter">INDO<span class="text-orange-600">EXPORT</span> GLOBAL</div>
-            <p data-i18n="footer-about" class="text-slate-400 text-sm max-w-xl mx-auto mb-10">Penyedia solusi perdagangan global terpercaya untuk komoditas terbaik Indonesia.</p>
-            <div class="flex justify-center gap-6 mb-12">
-                <a href="#" class="text-slate-400 hover:text-orange-500 transition"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="#" class="text-slate-400 hover:text-orange-500 transition"><i class="fab fa-facebook text-xl"></i></a>
-                <a href="#" class="text-slate-400 hover:text-orange-500 transition"><i class="fab fa-whatsapp text-xl"></i></a>
+            <div class="mb-12">
+                <div class="text-3xl font-black italic uppercase mb-6 tracking-tighter">INDO<span class="text-orange-600">EXPORT</span> GLOBAL</div>
+                <p data-i18n="footer-about" class="text-slate-400 text-sm max-w-2xl mx-auto leading-relaxed">Penyedia solusi perdagangan global terpercaya untuk komoditas terbaik Indonesia. Kami menghubungkan kualitas lokal ke pasar internasional.</p>
             </div>
-            <div class="pt-8 border-t border-white/5 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
-                &copy; 2025 IndoExport Global Hub.
+            
+            <div class="flex justify-center gap-10 mb-12">
+                <div class="flex items-center gap-3 text-slate-400 text-[11px] font-bold uppercase tracking-widest">
+                    <i class="fas fa-envelope text-orange-500"></i> contact@indoexport.global
+                </div>
+                <div class="flex items-center gap-3 text-slate-400 text-[11px] font-bold uppercase tracking-widest">
+                    <i class="fab fa-whatsapp text-green-500"></i> +62 812-3456-789
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/5">
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em]">
+                    &copy; 2025 IndoExport Global Hub. All Rights Reserved.
+                </p>
             </div>
         </div>
     </footer>
@@ -387,50 +413,50 @@
 
         const i18n = {
             id: {
-                "nav-home": "BERANDA", "nav-company": "COMPANY", "nav-owner": "OWNER",
+                "nav-home": "BERANDA", "nav-company": "PERUSAHAAN", "nav-owner": "EXECUTIVE PROFILE",
                 "hero-tag": "Penyuplai Komoditas Terpercaya",
-                "hero-desc": "Kualitas produk terbaik dari petani lokal untuk standar pasar internasional.",
-                "filter-label": "Cari Komoditas", "filter-sub": "Filter Kategori",
+                "hero-desc": "Kualitas produk terbaik dari petani lokal untuk standar pasar internasional dengan layanan profesional.",
+                "filter-label": "KATALOG PRODUK", "filter-sub": "Temukan Komoditas Anda",
                 "proc-title": "Prosedur Kerja Sama",
-                "step1-t": "Pilih Komoditas", "step1-d": "Tinjau katalog atau sampaikan kebutuhan spesifik Anda.",
-                "step2-t": "Konsultasi Admin", "step2-d": "Dapatkan penawaran harga terbaik (FOB/CNF/CIF).",
-                "step3-t": "Kontrak & Pengiriman", "step3-d": "Penerbitan kontrak resmi dan logistik internasional.",
-                "footer-about": "Penyedia solusi perdagangan global terpercaya untuk komoditas terbaik Indonesia.",
+                "step1-t": "Pilih Komoditas", "step1-d": "Tinjau katalog premium kami atau sampaikan kebutuhan spesifik pasar Anda.",
+                "step2-t": "Konsultasi Admin", "step2-d": "Dapatkan penawaran harga terbaik dengan skema FOB/CNF/CIF yang kompetitif.",
+                "step3-t": "Kontrak & Pengiriman", "step3-d": "Penerbitan kontrak resmi dan manajemen logistik internasional hingga tujuan.",
+                "footer-about": "Penyedia solusi perdagangan global terpercaya untuk komoditas terbaik Indonesia. Kami menghubungkan kualitas lokal ke pasar internasional.",
                 "all-cat": "Semua Kategori", "btn-detail": "Lihat Detail",
-                "spec-label": "Spesifikasi", "chat-label": "Hubungi Kami",
-                "owner-title": "Pendiri & CEO",
+                "spec-label": "Spesifikasi Produk", "chat-label": "Inquiry via WhatsApp",
+                "owner-title": "Founder & CEO",
                 "owner-bio": "\"Kami percaya bahwa kejujuran dan kualitas adalah mata uang utama dalam perdagangan internasional. Fokus saya adalah memastikan setiap mitra kami mendapatkan nilai terbaik dari kekayaan alam Indonesia.\"",
                 "cp-tag": "Tentang Perusahaan", "cp-title": "Empowering Indonesia's Potential for Global Success.",
                 "cp-desc": "IndoExport Global adalah entitas perdagangan internasional terkemuka yang berpusat di Indonesia, berdedikasi untuk menjembatani sumber daya alam berkualitas tinggi milik Nusantara ke pasar global.",
                 "cp-stat1": "Destinasi Global", "cp-stat2": "Jaminan Kualitas",
-                "val1-t": "Integritas Utama", "val1-d": "Transparansi dalam setiap negosiasi dan transaksi untuk membangun kepercayaan jangka panjang.",
-                "val2-t": "Kualitas Unggul", "val2-d": "QC ketat memastikan produk tiba di tangan Anda dalam kondisi sempurna.",
+                "val1-t": "Integritas Utama", "val1-d": "Transparansi dalam setiap negosiasi untuk membangun kepercayaan jangka panjang.",
+                "val2-t": "Kualitas Unggul", "val2-d": "QC ketat memastikan produk tiba dalam kondisi sempurna.",
                 "val3-t": "Keberlanjutan", "val3-d": "Komitmen pada Fair Trade dan praktik ramah lingkungan.",
-                "cp-visi-t": "Visi Strategis", "cp-visi-d": "Menjadi pemimpin pasar global dalam distribusi komoditas unggulan Indonesia yang diakui atas inovasi rantai pasokan dan kontribusi sosial.",
-                "cp-misi-t": "Misi Operasional", "cp-misi-1": "Produk agrikultur bersertifikasi mutu global.", "cp-misi-2": "Ekosistem logistik aman, efisien, dan tepat waktu.", "cp-misi-3": "Prinsip Fair Trade untuk kesejahteraan petani."
+                "cp-visi-t": "Visi Strategis", "cp-visi-d": "Menjadi pemimpin pasar global dalam distribusi komoditas unggulan Indonesia yang diakui atas inovasi rantai pasokan dan kontribusi sosial yang positif.",
+                "cp-misi-t": "Misi Operasional", "cp-misi-1": "Produk agrikultur bersertifikasi mutu global standar tertinggi.", "cp-misi-2": "Ekosistem logistik yang aman, efisien, dan tepat waktu.", "cp-misi-3": "Menerapkan prinsip Fair Trade untuk kesejahteraan petani Indonesia."
             },
             en: {
-                "nav-home": "HOME", "nav-company": "COMPANY", "nav-owner": "OWNER",
+                "nav-home": "HOME", "nav-company": "COMPANY", "nav-owner": "EXECUTIVE PROFILE",
                 "hero-tag": "Trusted Commodity Supplier",
-                "hero-desc": "Top quality products from local farmers for international market standards.",
-                "filter-label": "Search Commodity", "filter-sub": "Filter Category",
+                "hero-desc": "Top quality products from local farmers for international market standards with professional services.",
+                "filter-label": "PRODUCT CATALOG", "filter-sub": "Find Your Commodity",
                 "proc-title": "Partnership Procedure",
-                "step1-t": "Select Commodity", "step1-d": "Review our catalog or state your specific needs.",
-                "step2-t": "Admin Consultation", "step2-d": "Get the best price quotes (FOB/CNF/CIF).",
-                "step3-t": "Contract & Shipping", "step3-d": "Official contract issuance and international logistics.",
-                "footer-about": "Trusted global trade solution provider for Indonesia's finest commodities.",
+                "step1-t": "Select Commodity", "step1-d": "Review our premium catalog or state your market's specific needs.",
+                "step2-t": "Admin Consultation", "step2-d": "Get competitive price quotes with FOB/CNF/CIF schemes.",
+                "step3-t": "Contract & Shipping", "step3-d": "Official contract issuance and international logistics management to destination.",
+                "footer-about": "Trusted global trade solution provider for Indonesia's finest commodities. Connecting local quality to international markets.",
                 "all-cat": "All Categories", "btn-detail": "View Details",
-                "spec-label": "Specifications", "chat-label": "Contact Us",
+                "spec-label": "Product Specifications", "chat-label": "Inquiry via WhatsApp",
                 "owner-title": "Founder & CEO",
                 "owner-bio": "\"We believe that integrity and quality are the ultimate currencies in international trade. My focus is to ensure every partner receives the best value from Indonesia's natural resources.\"",
                 "cp-tag": "Corporate Profile", "cp-title": "Empowering Indonesia's Potential for Global Success.",
                 "cp-desc": "IndoExport Global is a premier international trade entity based in Indonesia, dedicated to bridging Nusantara's high-quality natural resources to the global market.",
                 "cp-stat1": "Global Destinations", "cp-stat2": "Quality Guaranteed",
-                "val1-t": "Integrity First", "val1-d": "We uphold transparency in every negotiation and transaction to build long-term trust.",
+                "val1-t": "Integrity First", "val1-d": "We uphold transparency in every negotiation to build long-term trust.",
                 "val2-t": "Superior Quality", "val2-d": "Strict QC processes ensure products reach you in perfect condition.",
                 "val3-t": "Sustainability", "val3-d": "Committed to fair trade practices and eco-friendly ecosystems.",
                 "cp-visi-t": "Strategic Vision", "cp-visi-d": "To be a global market leader in Indonesian commodity distribution recognized for supply chain innovation and social contribution.",
-                "cp-misi-t": "Operational Mission", "cp-misi-1": "Certified global quality agriculture products.", "cp-misi-2": "Safe, efficient, and timely logistics ecosystem.", "cp-misi-3": "Fair Trade principles for farmer welfare."
+                "cp-misi-t": "Operational Mission", "cp-misi-1": "Highest standard certified global quality agriculture products.", "cp-misi-2": "Safe, efficient, and timely logistics ecosystem.", "cp-misi-3": "Fair Trade principles for Indonesian farmer welfare."
             }
         };
 
@@ -577,15 +603,15 @@
             const container = document.getElementById('product-container');
             if(!container) return;
             container.innerHTML = data.map(p => `
-                <div onclick="openModal('${p.id}')" class="product-card cursor-pointer bg-white rounded-2xl overflow-hidden custom-shadow border border-slate-100 transition-all group">
-                    <div class="h-40 md:h-52 overflow-hidden relative">
+                <div onclick="openModal('${p.id}')" class="product-card cursor-pointer bg-white rounded-3xl overflow-hidden custom-shadow border border-slate-100 transition-all group">
+                    <div class="h-44 md:h-60 overflow-hidden relative">
                         <img src="${p.images[0]}" onerror="this.src='${FALLBACK_IMG}'" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
-                    <div class="p-4">
-                        <h4 class="text-[10px] font-black text-blue-950 mb-1 truncate uppercase italic">${p.name[currentLang]}</h4>
-                        <p class="text-slate-400 text-[9px] line-clamp-1 mb-2 italic">${p.desc[currentLang]}</p>
-                        <div class="text-orange-600 text-[9px] font-black flex items-center justify-between pt-2 border-t border-slate-50 uppercase italic group-hover:text-blue-950">
-                            ${i18n[currentLang]['btn-detail']} <i class="fas fa-chevron-right text-[7px]"></i>
+                    <div class="p-5">
+                        <h4 class="text-[11px] font-black text-blue-950 mb-1.5 truncate uppercase italic tracking-tight">${p.name[currentLang]}</h4>
+                        <p class="text-slate-400 text-[10px] line-clamp-1 mb-3 italic">${p.desc[currentLang]}</p>
+                        <div class="text-orange-600 text-[10px] font-black flex items-center justify-between pt-3 border-t border-slate-50 uppercase italic group-hover:text-blue-950 tracking-widest">
+                            ${i18n[currentLang]['btn-detail']} <i class="fas fa-chevron-right text-[8px]"></i>
                         </div>
                     </div>
                 </div>
@@ -608,32 +634,32 @@
             const content = document.getElementById('modal-content');
             
             content.innerHTML = `
-                <div class="flex flex-col lg:flex-row gap-10">
+                <div class="flex flex-col lg:flex-row gap-12">
                     <div class="w-full lg:w-3/5">
-                        <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-100 mb-4 aspect-video lg:aspect-square">
+                        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl bg-slate-100 mb-6 aspect-video lg:aspect-square">
                             <img id="main-modal-img" src="${p.images[0]}" class="w-full h-full object-cover">
                         </div>
-                        <div class="flex gap-3 overflow-x-auto py-2 custom-scrollbar">
+                        <div class="flex gap-4 overflow-x-auto py-2 custom-scrollbar">
                             ${p.images.map((img, idx) => `
                                 <img src="${img}" onclick="changeModalImage('${img}', this)" 
-                                     class="modal-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent transition-all hover:opacity-100 opacity-60 ${idx===0?'thumb-active':''}">
+                                     class="modal-thumb w-24 h-24 object-cover rounded-2xl cursor-pointer border-2 border-transparent transition-all hover:opacity-100 opacity-60 ${idx===0?'thumb-active':''}">
                             `).join('')}
                         </div>
                     </div>
                     <div class="w-full lg:w-2/5 flex flex-col">
-                        <div class="mb-8">
-                            <span class="text-orange-600 font-black uppercase text-[10px] tracking-[0.4em] mb-2 block italic">${p.category[currentLang]}</span>
-                            <h2 class="text-3xl font-black text-blue-950 italic uppercase leading-none tracking-tighter">${p.name[currentLang]}</h2>
+                        <div class="mb-10">
+                            <span class="text-orange-600 font-black uppercase text-[11px] tracking-[0.4em] mb-3 block italic">${p.category[currentLang]}</span>
+                            <h2 class="text-4xl font-black text-blue-950 italic uppercase leading-none tracking-tighter">${p.name[currentLang]}</h2>
                         </div>
-                        <p class="text-slate-500 text-[13px] leading-relaxed mb-8 border-l-4 border-slate-100 pl-4 italic">${p.longDesc[currentLang]}</p>
-                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 mb-10">
-                            <span class="text-[9px] text-slate-400 font-black uppercase block mb-3 tracking-widest">${i18n[currentLang]['spec-label']}</span>
-                            <ul class="text-[11px] font-bold text-slate-700 space-y-2">
-                                ${p.specs[currentLang].map(s => `<li class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> ${s}</li>`).join('')}
+                        <p class="text-slate-500 text-[15px] leading-relaxed mb-10 border-l-4 border-slate-200 pl-5 italic font-medium opacity-90">${p.longDesc[currentLang]}</p>
+                        <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 mb-12 shadow-inner">
+                            <span class="text-[10px] text-slate-400 font-black uppercase block mb-4 tracking-widest">${i18n[currentLang]['spec-label']}</span>
+                            <ul class="text-[13px] font-bold text-slate-700 space-y-3">
+                                ${p.specs[currentLang].map(s => `<li class="flex items-center gap-4"><div class="w-2 h-2 bg-orange-500 rounded-full shadow-sm shadow-orange-500/50"></div> ${s}</li>`).join('')}
                             </ul>
                         </div>
-                        <button onclick="orderViaWA('${p.name[currentLang]}')" class="mt-auto w-full bg-green-600 text-white font-black py-5 rounded-2xl hover:bg-green-700 shadow-xl shadow-green-600/20 text-[11px] italic transition-all uppercase flex items-center justify-center gap-3 tracking-[0.2em]">
-                            <i class="fab fa-whatsapp text-xl"></i> ${i18n[currentLang]['chat-label']}
+                        <button onclick="orderViaWA('${p.name[currentLang]}')" class="mt-auto w-full bg-green-600 text-white font-black py-6 rounded-[2rem] hover:bg-green-700 shadow-2xl shadow-green-600/20 text-[12px] italic transition-all uppercase flex items-center justify-center gap-4 tracking-[0.25em]">
+                            <i class="fab fa-whatsapp text-2xl"></i> ${i18n[currentLang]['chat-label']}
                         </button>
                     </div>
                 </div>
